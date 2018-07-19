@@ -1,0 +1,58 @@
+{
+  "name": "react-woodworm",
+  "version": "1.0.0",
+  "description": "Spread your state down the tree - like a woodworm",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
+  "scripts": {
+    "build": "yarn build:es && yarn build:lib",
+    "build:es": "babel src --out-dir es --ignore __tests__",
+    "build:lib": "cross-env BABEL_ENV=commonjs babel src --out-dir lib --ignore __tests__",
+    "clear": "rimraf coverage lib es",
+    "check": "yarn format && yarn coverage",
+    "format": "prettier --write \"src/**/*.js\"",
+    "flow": "flow",
+    "release": "git pull --rebase && yarn build && npm publish",
+    "test": "cross-env BABEL_ENV=commonjs jest",
+    "coverage": "yarn test -- --coverage",
+    "watch": "yarn test -- --watch"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "lib/**",
+    "es/**"
+  ],
+  "repository": "https://github.com/rofrischmann/react-woodworm/",
+  "keywords": [
+    "react",
+    "context",
+    "state",
+    "management",
+    "state-management",
+    "store",
+    "redux"
+  ],
+  "author": "Robin Frischmann",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.3.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^23.4.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "codeclimate-test-reporter": "^0.5.0",
+    "cross-env": "^5.2.0",
+    "flow-bin": "^0.76.0",
+    "jest": "^23.4.1",
+    "prettier": "^1.13.7",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-test-renderer": "^16.4.1",
+    "rimraf": "^2.6.2"
+  }
+}
