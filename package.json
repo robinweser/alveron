@@ -1,6 +1,6 @@
 {
   "name": "react-woodworm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Spread your state down the tree - like a woodworm",
   "main": "lib/index.js",
   "module": "es/index.js",
