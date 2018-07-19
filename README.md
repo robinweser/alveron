@@ -29,6 +29,33 @@ Every time we create a store using react-woodworm, it internally uses React's `c
 ## Caveats
 Right now, every Provider creates its own store. Therefore you cannot use it in multiple places to share the same state. In order to achieve that, you would have to wrap your root component to use it everywhere.
 
+## API
+
+### createStore
+
+Creates a new Provider-Consumer pair given some actions and a state model.
+
+#### Parameters
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| model | *(any)* | | The initial state shape |
+| actions | *(Object)* | `{}` | A map of actions to modify the state. They key reflects the action name while the value is a reducer with the following signatur `(prevState, payload) => newState` |
+
+#### Returns
+An object containing both the `Provider` and the `Consumer` components.
+
+### Provider
+
+The Provider component that must wrap all inner Consumer in order to correctly pass and update the state.<br>
+It doesn't take any props and only renders its children.
+
+### Consumer
+
+The Consumer component that is used to render something based on the current state and actions.<br>
+
+It requires `children` to be a function that receives `state` and `actions` as parameters.
+
+
 ## Example
 ```javascript
 import React from 'react'
@@ -56,9 +83,6 @@ const Counter = () => (
   </Provider>
 )
 ```
-
-## API
-Coming soon.
 
 ## License
 react-woodworm is licensed under the [MIT License](http://opensource.org/licenses/MIT).<br>
