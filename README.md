@@ -1,7 +1,5 @@
 # react-woodworm
 
-> Spread your state down the tree - like a woodworm!
-
 Just like a woodworm, react-woodworm is super lightweight at **only 0.9kb gzipped**.<br>
 It uses React's new context feature and therefore requires React 16.3 or higher.
 
