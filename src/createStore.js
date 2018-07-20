@@ -8,11 +8,17 @@ type InterfaceShape = {
   Provider: any,
 }
 
+type OptionsType = {
+  model?: any,
+  actions?: Object,
+}
+
 export default function createStore(
-  model: any,
-  actions: ?Object = {}
+  options: OptionsShape = {}
 ): InterfaceShape {
   const Store = createContext()
+
+  const actions = options.actions || {}
 
   return {
     Provider: class Provider extends Component {
@@ -24,6 +30,7 @@ export default function createStore(
       constructor(props, context) {
         super(props, context)
 
+        const initialState = props.initialState || options.model
         const resolvedActions = Object.keys(actions).reduce((map, name) => {
           map[name] = payload =>
             this.setState(oldState => ({
@@ -34,7 +41,7 @@ export default function createStore(
         }, {})
 
         this.state = {
-          state: model,
+          state: initialState,
           actions: resolvedActions,
         }
       }
@@ -47,6 +54,7 @@ export default function createStore(
         )
       }
     },
+
     Consumer: ({ children }) => (
       <Store.Consumer>
         {store => validateStore(store) && children(store.state, store.actions)}

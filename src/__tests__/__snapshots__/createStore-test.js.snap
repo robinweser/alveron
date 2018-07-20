@@ -39,6 +39,14 @@ exports[`Rendering the <Consumer> should render the initial state 1`] = `
 </div>
 `;
 
+exports[`Rendering the <Consumer> should render the initial state passed to the Provider 1`] = `
+<div>
+  {
+  "foo": 5
+}
+</div>
+`;
+
 exports[`Rendering the <Consumer> should render the updated state 1`] = `
 <div>
   <div>

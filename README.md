@@ -3,6 +3,8 @@
 Just like a woodworm, react-woodworm is super lightweight at **only 0.9kb gzipped**.<br>
 It uses React's new context feature and therefore requires React 16.3 or higher.
 
+<img alt="TravisCI" src="https://travis-ci.org/rofrischmann/react-woodworm.svg?branch=master"> <a href="https://codeclimate.com/github/rofrischmann/react-woodworm/coverage"><img alt="Test Coverage" src="https://codeclimate.com/github/rofrischmann/react-woodworm/badges/coverage.svg"></a> <img alt="npm downloads" src="https://img.shields.io/npm/dm/react-woodworm.svg"> <img alt="gzipped size" src="https://img.shields.io/badge/gzipped-0.9kb-brightgreen.svg"> <img alt="npm version" src="https://badge.fury.io/js/react-woodworm.svg">
+
 ## Support Me
 If you're using [Robin Frischmann](https://rofrischmann.de)'s packages, please consider supporting his [Open Source Work](https://github.com/rofrischmann) on [**Patreon**](https://www.patreon.com/rofrischmann).
 
@@ -31,13 +33,14 @@ Right now, every Provider creates its own store. Therefore you cannot use it in 
 
 ### createStore
 
-Creates a new Provider-Consumer pair given some actions and a state model.
+Creates a new Provider-Consumer pair given some actions and a state model.<br>
+It takes a single options object as parameter that can be configured as described below.
 
-#### Parameters
+#### Options
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| model | *(any)* | | The initial state shape |
-| actions | *(Object)* | `{}` | A map of actions to modify the state. They key reflects the action name while the value is a reducer with the following signatur `(prevState, payload) => newState` |
+| actions | *(Object?)* | `{}` | *(optional)* a map of actions to modify the state. They key reflects the action name while the value is a reducer with the following signatur `(prevState, payload) => newState` |
+| model | *(any?)* | | *(optional)* The initial state shape |
 
 #### Returns
 An object containing both the `Provider` and the `Consumer` components.
@@ -50,7 +53,6 @@ It doesn't take any props and only renders its children.
 ### Consumer
 
 The Consumer component that is used to render something based on the current state and actions.<br>
-
 It requires `children` to be a function that receives `state` and `actions` as parameters.
 
 
@@ -65,7 +67,10 @@ const actions = {
   decrement: prevState => prevState - 1
 }
 
-const { Provider, Consumer } = createStore(model, actions)
+const { Provider, Consumer } = createStore({
+  model,
+  actions
+})
 
 const Counter = () => (
   <Provider>

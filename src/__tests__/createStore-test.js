@@ -24,10 +24,12 @@ describe('Rendering the <Consumer>', () => {
 
   it('should render the initial state', () => {
     const { Provider, Consumer } = createStore({
-      foo: 1,
-      bar: 'bar',
-      baz: {
-        foobar: 5,
+      model: {
+        foo: 1,
+        bar: 'bar',
+        baz: {
+          foobar: 5,
+        },
       },
     })
 
@@ -42,19 +44,41 @@ describe('Rendering the <Consumer>', () => {
     expect(tree.toJSON()).toMatchSnapshot()
   })
 
-  it('should render the updated state', () => {
-    const { Provider, Consumer } = createStore(
-      {
+  it('should render the initial state passed to the Provider', () => {
+    const { Provider, Consumer } = createStore({
+      model: {
         foo: 1,
         bar: 'bar',
         baz: {
           foobar: 5,
         },
       },
-      {
-        update: (state, payload) => Object.assign({}, state, { foo: payload }),
-      }
+    })
+
+    const tree = TestRenderer.create(
+      <Provider initialState={{ foo: 5 }}>
+        <Consumer>
+          {state => <div>{JSON.stringify(state, null, 2)}</div>}
+        </Consumer>
+      </Provider>
     )
+
+    expect(tree.toJSON()).toMatchSnapshot()
+  })
+
+  it('should render the updated state', () => {
+    const { Provider, Consumer } = createStore({
+      model: {
+        foo: 1,
+        bar: 'bar',
+        baz: {
+          foobar: 5,
+        },
+      },
+      actions: {
+        update: (state, payload) => Object.assign({}, state, { foo: payload }),
+      },
+    })
 
     const tree = TestRenderer.create(
       <Provider>
@@ -75,8 +99,11 @@ describe('Rendering the <Consumer>', () => {
   })
 
   it('should create a separate store for every Provider instance', () => {
-    const { Provider, Consumer } = createStore(0, {
-      increment: state => state + 1,
+    const { Provider, Consumer } = createStore({
+      model: 0,
+      actions: {
+        increment: state => state + 1,
+      },
     })
 
     const Counter = () => (
