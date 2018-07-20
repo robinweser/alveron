@@ -98,6 +98,40 @@ describe('Rendering the <Consumer>', () => {
     expect(tree.toJSON()).toMatchSnapshot()
   })
 
+  it('should support async actions', async () => {
+    const { Provider, Consumer } = createStore({
+      model: 10,
+      actions: {
+        update: state => state + 1,
+        resetAsync: state => Promise.resolve(10),
+      },
+    })
+
+    const tree = TestRenderer.create(
+      <Provider>
+        <Consumer>
+          {(state, actions) => (
+            <div>
+              <div>{state}</div>
+              <button id="update" onClick={actions.update}>
+                Update
+              </button>
+              <button id="reset" onClick={actions.resetAsync}>
+                Reset After 1 second
+              </button>
+            </div>
+          )}
+        </Consumer>
+      </Provider>
+    )
+
+    tree.root.findByProps({ id: 'update' }).props.onClick() // should increment model by 1
+    expect(tree.toJSON()).toMatchSnapshot()
+
+    await tree.root.findByProps({ id: 'reset' }).props.onClick() // should reset to zero after 1sec
+    expect(tree.toJSON()).toMatchSnapshot()
+  })
+
   it('should create a separate store for every Provider instance', () => {
     const { Provider, Consumer } = createStore({
       model: 0,

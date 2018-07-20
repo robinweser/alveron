@@ -65,3 +65,43 @@ exports[`Rendering the <Consumer> should render the updated state 1`] = `
   </button>
 </div>
 `;
+
+exports[`Rendering the <Consumer> should support async actions 1`] = `
+<div>
+  <div>
+    11
+  </div>
+  <button
+    id="update"
+    onClick={[Function]}
+  >
+    Update
+  </button>
+  <button
+    id="reset"
+    onClick={[Function]}
+  >
+    Reset After 1 second
+  </button>
+</div>
+`;
+
+exports[`Rendering the <Consumer> should support async actions 2`] = `
+<div>
+  <div>
+    10
+  </div>
+  <button
+    id="update"
+    onClick={[Function]}
+  >
+    Update
+  </button>
+  <button
+    id="reset"
+    onClick={[Function]}
+  >
+    Reset After 1 second
+  </button>
+</div>
+`;
