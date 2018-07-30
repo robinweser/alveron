@@ -48,7 +48,11 @@ An object containing both the `Provider` and the `Consumer` components.
 ### Provider
 
 The Provider component that must wrap all inner Consumer in order to correctly pass and update the state.<br>
-It doesn't take any props and only renders its children.
+
+#### Props
+| Name | Type | Description |
+| --- | --- | --- | --- |
+| initialState | *(Object?)* | *(optional)* an individual initial state per Provider that overwrites the default `model` |
 
 ### Consumer
 
@@ -65,10 +69,9 @@ const model = 0
 const actions = {
   increment: prevState => prevState + 1,
   decrement: prevState => prevState - 1,
-  /*
-  * actions can be async too!
-  * NOTE: should return a promise (then-able object)
-  */
+  
+  // react-woodworm also supports async actions
+  // by returning a promise (then-able object)
   resetAsync: prevState => new Promise(resolve => {
     // resets model to initial state
     setTimeout(() => {
