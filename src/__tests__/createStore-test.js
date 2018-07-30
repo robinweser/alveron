@@ -98,6 +98,35 @@ describe('Rendering the <Consumer>', () => {
     expect(tree.toJSON()).toMatchSnapshot()
   })
 
+  it('should support multiple arguments on actions', () => {
+    const { Provider, Consumer } = createStore({
+      model: 0,
+      actions: {
+        increment(state, stepper = 1, additionalStepper = 0) {
+          return state + stepper + additionalStepper
+        },
+      },
+    })
+
+    const tree = TestRenderer.create(
+      <Provider>
+        <Consumer>
+          {(state, actions) => (
+            <div>
+              <div>{JSON.stringify(state, null, 2)}</div>
+              <button onClick={() => actions.increment(5, 2)}>Increment</button>
+            </div>
+          )}
+        </Consumer>
+      </Provider>
+    )
+
+    tree.root.findByType('button').props.onClick()
+
+    expect(tree.getInstance().state.state).toBe(7)
+    expect(tree.toJSON()).toMatchSnapshot()
+  })
+
   it('should support async actions', async () => {
     const { Provider, Consumer } = createStore({
       model: 10,

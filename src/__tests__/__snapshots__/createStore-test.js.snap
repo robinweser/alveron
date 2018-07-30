@@ -105,3 +105,16 @@ exports[`Rendering the <Consumer> should support async actions 2`] = `
   </button>
 </div>
 `;
+
+exports[`Rendering the <Consumer> should support multiple arguments on actions 1`] = `
+<div>
+  <div>
+    7
+  </div>
+  <button
+    onClick={[Function]}
+  >
+    Increment
+  </button>
+</div>
+`;
