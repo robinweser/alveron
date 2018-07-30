@@ -32,10 +32,23 @@ export default function createStore(
 
         const initialState = props.initialState || options.model
         const resolvedActions = Object.keys(actions).reduce((map, name) => {
-          map[name] = payload =>
-            this.setState(oldState => ({
-              state: actions[name](oldState.state, payload),
-            }))
+          map[name] = payload => {
+            const newState = actions[name](this.state.state, payload)
+            const isAsyncAction = newState.then !== undefined
+            if (isAsyncAction) {
+              newState
+                .then(resolvedState => {
+                  this.setState({ state: resolvedState })
+                })
+                .catch(err => {
+                  console.error(
+                    `Error while running action "${name}": ${err.message}`
+                  )
+                })
+            } else {
+              this.setState({ state: newState })
+            }
+          }
 
           return map
         }, {})

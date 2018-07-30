@@ -64,7 +64,17 @@ import { createStore } from 'react-woodworm'
 const model = 0
 const actions = {
   increment: prevState => prevState + 1,
-  decrement: prevState => prevState - 1
+  decrement: prevState => prevState - 1,
+  /*
+  * actions can be async too!
+  * NOTE: should return a promise (then-able object)
+  */
+  resetAsync: prevState => new Promise(resolve => {
+    // resets model to initial state
+    setTimeout(() => {
+      resolve(model)
+    }
+  }, 1000))
 }
 
 const { Provider, Consumer } = createStore({
@@ -80,6 +90,7 @@ const Counter = () => (
           Count: {state}
           <button onClick={actions.increment}>+</button>
           <button onClick={actions.decrement}>-</button>
+          <button onClick={actions.resetAsync}>Reset after 1 second</button>
         </div>
       )}
     </Consumer>
