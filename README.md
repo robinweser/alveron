@@ -1,9 +1,9 @@
 # react-woodworm
 
-Just like a woodworm, react-woodworm is super lightweight at **only 0.9kb gzipped**.<br>
+Just like a woodworm, react-woodworm is super lightweight at **only 1kb gzipped**.<br>
 It uses React's new context feature and therefore requires React 16.3 or higher.
 
-<img alt="TravisCI" src="https://travis-ci.org/rofrischmann/react-woodworm.svg?branch=master"> <a href="https://codeclimate.com/github/rofrischmann/react-woodworm/coverage"><img alt="Test Coverage" src="https://codeclimate.com/github/rofrischmann/react-woodworm/badges/coverage.svg"></a> <img alt="npm downloads" src="https://img.shields.io/npm/dm/react-woodworm.svg"> <img alt="gzipped size" src="https://img.shields.io/badge/gzipped-0.9kb-brightgreen.svg"> <img alt="npm version" src="https://badge.fury.io/js/react-woodworm.svg">
+<img alt="TravisCI" src="https://travis-ci.org/rofrischmann/react-woodworm.svg?branch=master"> <a href="https://codeclimate.com/github/rofrischmann/react-woodworm/coverage"><img alt="Test Coverage" src="https://codeclimate.com/github/rofrischmann/react-woodworm/badges/coverage.svg"></a> <img alt="npm downloads" src="https://img.shields.io/npm/dm/react-woodworm.svg"> <img alt="gzipped size" src="https://img.shields.io/badge/gzipped-1kb-brightgreen.svg"> <img alt="npm version" src="https://badge.fury.io/js/react-woodworm.svg">
 
 ## Support Me
 If you're using [Robin Frischmann](https://rofrischmann.de)'s packages, please consider supporting his [Open Source Work](https://github.com/rofrischmann) on [**Patreon**](https://www.patreon.com/rofrischmann).
@@ -69,7 +69,7 @@ const model = 0
 const actions = {
   increment: prevState => prevState + 1,
   decrement: prevState => prevState - 1,
-  
+
   // react-woodworm also supports async actions
   // by returning a promise (then-able object)
   resetAsync: prevState => new Promise(resolve => {
