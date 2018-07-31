@@ -33,9 +33,9 @@ export default function createStore(
 
         const initialState = props.initialState || options.model
         const resolvedActions = Object.keys(actions).reduce((map, name) => {
-          map[name] = payload =>
+          map[name] = (...payload) =>
             this.setState(prevState => ({
-              state: actions[name](prevState.state, payload),
+              state: actions[name](prevState.state, ...payload),
             }))
 
           return map
@@ -43,11 +43,11 @@ export default function createStore(
 
         const setState = this.setState.bind(this)
         const resolvedEffects = Object.keys(effects).reduce((map, name) => {
-          map[name] = payload =>
+          map[name] = (...payload) =>
             effects[name](
               reducer =>
                 setState(prevState => ({ state: reducer(prevState.state) })),
-              payload
+              ...payload
             )
           return map
         }, {})
