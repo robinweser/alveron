@@ -38,7 +38,7 @@ It takes a single options object as parameter that can be configured as describe
 
 #### Options
 | Name | Type | Description |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | actions | *(Object?)* | *(optional)* a map of actions to modify the state.<br>Actions have the signature `(prevState, payload) => newState` |
 | effects | *(Object?)* | *(optional)* a map of (async) side effects that alter the state.<br>Effects have the signature `(setState, payload) => setState(prevState => newState)`
 | model | *(any?)* | *(optional)* The initial state shape |
