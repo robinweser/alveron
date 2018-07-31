@@ -52,7 +52,7 @@ The Provider component that must wrap all inner Consumer in order to correctly p
 
 #### Props
 | Name | Type | Description |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | initialState | *(Object?)* | *(optional)* per-Provider initialState that overwrites the default model |
 
 ### Consumer
