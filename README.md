@@ -41,7 +41,7 @@ It takes a single options object as parameter that can be configured as describe
 | --- | --- | --- |
 | actions | *(Object?)* | *(optional)* a map of actions to modify the state.<br>Actions have the signature `(prevState, payload) => newState` |
 | effects | *(Object?)* | *(optional)* a map of (async) side effects that alter the state.<br>Effects have the signature `(setState, payload) => setState(prevState => newState)`
-| model | *(any?)* | *(optional)* The initial state shape |
+| model | *(any?)* | *(optional)* the initial state shape |
 
 #### Returns
 An object containing both the `Provider` and the `Consumer` components.
@@ -83,7 +83,8 @@ const effects = {
 
 const { Provider, Consumer } = createStore({
   model,
-  actions
+  actions,
+  effects
 })
 
 const Counter = () => (
