@@ -37,10 +37,11 @@ Creates a new Provider-Consumer pair given some actions and a state model.<br>
 It takes a single options object as parameter that can be configured as described below.
 
 #### Options
-| Name | Type | Default | Description |
+| Name | Type | Description |
 | --- | --- | --- | --- |
-| actions | *(Object?)* | `{}` | *(optional)* a map of actions to modify the state. They key reflects the action name while the value is a reducer with the following signatur `(prevState, payload) => newState` |
-| model | *(any?)* | | *(optional)* The initial state shape |
+| actions | *(Object?)* | *(optional)* a map of actions to modify the state.<br>Actions have the signature `(prevState, payload) => newState` |
+| effects | *(Object?)* | *(optional)* a map of (async) side effects that alter the state.<br>Effects have the signature `(setState, payload) => setState(prevState => newState)`
+| model | *(any?)* | *(optional)* The initial state shape |
 
 #### Returns
 An object containing both the `Provider` and the `Consumer` components.
@@ -69,15 +70,15 @@ const model = 0
 const actions = {
   increment: prevState => prevState + 1,
   decrement: prevState => prevState - 1,
+}
 
-  // react-woodworm also supports async actions
-  // by returning a promise (then-able object)
-  resetAsync: prevState => new Promise(resolve => {
-    // resets model to initial state
-    setTimeout(() => {
-      resolve(model)
-    }
-  }, 1000))
+// It also supports async side effects
+// this is useful if you e.g. do API calls
+const effects = {
+  resetAsync: setState => setTimeout(
+    () => setState(() => 0),
+    1000
+  )
 }
 
 const { Provider, Consumer } = createStore({
@@ -88,12 +89,12 @@ const { Provider, Consumer } = createStore({
 const Counter = () => (
   <Provider>
     <Consumer>
-      {(state, actions) => (
+      {(state, actions, effects) => (
         <div>
           Count: {state}
           <button onClick={actions.increment}>+</button>
           <button onClick={actions.decrement}>-</button>
-          <button onClick={actions.resetAsync}>Reset after 1 second</button>
+          <button onClick={effects.resetAsync}>Reset after 1 second</button>
         </div>
       )}
     </Consumer>
