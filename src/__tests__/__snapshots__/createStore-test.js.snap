@@ -30,7 +30,7 @@ exports[`Rendering the <Consumer> should create a separate store for every Provi
 exports[`Rendering the <Consumer> should pipe state updates through middleware 1`] = `
 <div>
   <div>
-    2
+    4
   </div>
   <button
     onClick={[Function]}
@@ -43,6 +43,9 @@ exports[`Rendering the <Consumer> should pipe state updates through middleware 1
 exports[`Rendering the <Consumer> should pipe state updates through middleware 2`] = `
 Array [
   1,
+  2,
+  3,
+  4,
 ]
 `;
 

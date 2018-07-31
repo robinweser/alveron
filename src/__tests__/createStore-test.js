@@ -211,7 +211,7 @@ describe('Rendering the <Consumer>', () => {
     const cacheState = state => cache.push(state)
 
     const tree = TestRenderer.create(
-      <Provider middleware={[cacheState]}>
+      <Provider listeners={[cacheState]}>
         <Consumer>
           {(state, actions) => (
             <div>
@@ -223,6 +223,9 @@ describe('Rendering the <Consumer>', () => {
       </Provider>
     )
 
+    tree.root.findByType('button').props.onClick()
+    tree.root.findByType('button').props.onClick()
+    tree.root.findByType('button').props.onClick()
     tree.root.findByType('button').props.onClick()
 
     expect(tree.toJSON()).toMatchSnapshot()
