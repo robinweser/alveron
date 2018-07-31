@@ -76,7 +76,7 @@ describe('Rendering the <Consumer>', () => {
         },
       },
       actions: {
-        update: (state, payload) => Object.assign({}, state, { foo: payload }),
+        update: (state, payload) => ({ ...state, foo: payload }),
       },
     })
 
@@ -195,6 +195,34 @@ describe('Rendering the <Consumer>', () => {
     )
 
     tree.root.findAllByType('button')[0].props.onClick()
+
+    expect(tree.toJSON()).toMatchSnapshot()
+  })
+
+  it('should pipe state updates through middleware', () => {
+    const { Provider, Consumer } = createStore({
+      model: 0,
+      actions: {
+        increment: state => state + 1,
+      },
+    })
+
+    const doMagic = state => state + 1
+
+    const tree = TestRenderer.create(
+      <Provider middleware={[doMagic]}>
+        <Consumer>
+          {(state, actions) => (
+            <div>
+              <div>{state}</div>
+              <button onClick={actions.increment}>Update</button>
+            </div>
+          )}
+        </Consumer>
+      </Provider>
+    )
+
+    tree.root.findByType('button').props.onClick()
 
     expect(tree.toJSON()).toMatchSnapshot()
   })

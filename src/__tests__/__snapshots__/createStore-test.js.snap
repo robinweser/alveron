@@ -27,6 +27,19 @@ exports[`Rendering the <Consumer> should create a separate store for every Provi
 </div>
 `;
 
+exports[`Rendering the <Consumer> should pipe state updates through middleware 1`] = `
+<div>
+  <div>
+    2
+  </div>
+  <button
+    onClick={[Function]}
+  >
+    Update
+  </button>
+</div>
+`;
+
 exports[`Rendering the <Consumer> should render the initial state 1`] = `
 <div>
   {

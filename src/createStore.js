@@ -11,6 +11,7 @@ type InterfaceShape = {
 type OptionsType = {
   model?: any,
   actions?: Object,
+  effects?: Object,
 }
 
 export default function createStore(
@@ -23,9 +24,14 @@ export default function createStore(
 
   return {
     Provider: class Provider extends Component {
+      static defaultProps = {
+        middleware: [],
+      }
+
       state: {
         state: any,
         actions: Object,
+        effects: Object,
       }
 
       constructor(props, context) {
@@ -35,18 +41,22 @@ export default function createStore(
         const resolvedActions = Object.keys(actions).reduce((map, name) => {
           map[name] = (...payload) =>
             this.setState(prevState => ({
-              state: actions[name](prevState.state, ...payload),
+              state: this._resolveState(
+                actions[name](prevState.state, ...payload)
+              ),
             }))
 
           return map
         }, {})
 
-        const setState = this.setState.bind(this)
+        const update = this.setState.bind(this)
         const resolvedEffects = Object.keys(effects).reduce((map, name) => {
           map[name] = (...payload) =>
             effects[name](
               reducer =>
-                setState(prevState => ({ state: reducer(prevState.state) })),
+                update(prevState => ({
+                  state: this._resolveState(reducer(prevState.state)),
+                })),
               ...payload
             )
           return map
@@ -57,6 +67,17 @@ export default function createStore(
           actions: resolvedActions,
           effects: resolvedEffects,
         }
+      }
+
+      _resolveState = newState => {
+        if (this.props.middleware.length === 0) {
+          return newState
+        }
+
+        return this.props.middleware.reduce(
+          (finalState, middleware) => middleware(finalState),
+          newState
+        )
       }
 
       render() {
