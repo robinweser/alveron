@@ -19,6 +19,7 @@ export default function createStore(
   const Store = createContext()
 
   const actions = options.actions || {}
+  const effects = options.effects || {}
 
   return {
     Provider: class Provider extends Component {
@@ -32,29 +33,29 @@ export default function createStore(
 
         const initialState = props.initialState || options.model
         const resolvedActions = Object.keys(actions).reduce((map, name) => {
-          map[name] = (...payload) => {
-            const newState = actions[name](this.state.state, ...payload)
-            const isAsyncAction = newState.then !== undefined
+          map[name] = (...payload) =>
+            this.setState(prevState => ({
+              state: actions[name](prevState.state, ...payload),
+            }))
 
-            if (isAsyncAction) {
-              newState
-                .then(resolvedState => this.setState({ state: resolvedState }))
-                .catch(err =>
-                  console.error(
-                    `Error while running action "${name}": ${err.message}`
-                  )
-                )
-            } else {
-              this.setState({ state: newState })
-            }
-          }
+          return map
+        }, {})
 
+        const setState = this.setState.bind(this)
+        const resolvedEffects = Object.keys(effects).reduce((map, name) => {
+          map[name] = (...payload) =>
+            effects[name](
+              reducer =>
+                setState(prevState => ({ state: reducer(prevState.state) })),
+              ...payload
+            )
           return map
         }, {})
 
         this.state = {
           state: initialState,
           actions: resolvedActions,
+          effects: resolvedEffects,
         }
       }
 
@@ -69,7 +70,10 @@ export default function createStore(
 
     Consumer: ({ children }) => (
       <Store.Consumer>
-        {store => validateStore(store) && children(store.state, store.actions)}
+        {store =>
+          validateStore(store) &&
+          children(store.state, store.actions, store.effects)
+        }
       </Store.Consumer>
     ),
   }
