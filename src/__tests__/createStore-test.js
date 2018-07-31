@@ -207,10 +207,11 @@ describe('Rendering the <Consumer>', () => {
       },
     })
 
-    const doMagic = state => state + 1
+    const cache = []
+    const cacheState = state => cache.push(state)
 
     const tree = TestRenderer.create(
-      <Provider middleware={[doMagic]}>
+      <Provider middleware={[cacheState]}>
         <Consumer>
           {(state, actions) => (
             <div>
@@ -225,5 +226,6 @@ describe('Rendering the <Consumer>', () => {
     tree.root.findByType('button').props.onClick()
 
     expect(tree.toJSON()).toMatchSnapshot()
+    expect(cache).toMatchSnapshot()
   })
 })

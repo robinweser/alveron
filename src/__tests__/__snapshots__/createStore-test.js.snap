@@ -40,6 +40,12 @@ exports[`Rendering the <Consumer> should pipe state updates through middleware 1
 </div>
 `;
 
+exports[`Rendering the <Consumer> should pipe state updates through middleware 2`] = `
+Array [
+  1,
+]
+`;
+
 exports[`Rendering the <Consumer> should render the initial state 1`] = `
 <div>
   {
