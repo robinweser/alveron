@@ -13,7 +13,7 @@
     "check": "yarn format && yarn coverage",
     "format": "prettier --write \"src/**/*.js\"",
     "flow": "flow",
-    "release": "git pull --rebase && yarn check && yarn build && npm publish",
+    "release": "git pull --rebase && yarn run check && yarn build && npm publish",
     "test": "cross-env BABEL_ENV=commonjs jest",
     "snapshots": "jest -u",
     "coverage": "yarn test -- --coverage",
