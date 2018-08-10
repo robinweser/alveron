@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rendering the <Consumer> should create a separate store for every Provider instance 1`] = `
+<div>
+  <div>
+    <div>
+      Count: 
+      1
+    </div>
+    <button
+      onClick={[Function]}
+    >
+      +
+    </button>
+  </div>
+  <div>
+    <div>
+      Count: 
+      0
+    </div>
+    <button
+      onClick={[Function]}
+    >
+      +
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Rendering the <Consumer> should render the initial state 1`] = `
+<div>
+  {
+  "foo": 1,
+  "bar": "bar",
+  "baz": {
+    "foobar": 5
+  }
+}
+</div>
+`;
+
+exports[`Rendering the <Consumer> should render the initial state passed to the Provider 1`] = `
+<div>
+  {
+  "foo": 5
+}
+</div>
+`;
+
+exports[`Rendering the <Consumer> should render the updated state 1`] = `
+<div>
+  <div>
+    {
+  "foo": 10,
+  "bar": "bar",
+  "baz": {
+    "foobar": 5
+  }
+}
+  </div>
+  <button
+    onClick={[Function]}
+  >
+    Update
+  </button>
+</div>
+`;
+
+exports[`Rendering the <Consumer> should support async actions 1`] = `
+<div>
+  <div>
+    11
+  </div>
+  <button
+    id="update"
+    onClick={[Function]}
+  >
+    Update
+  </button>
+  <button
+    id="reset"
+    onClick={[Function]}
+  >
+    Reset After 1 second
+  </button>
+</div>
+`;
+
+exports[`Rendering the <Consumer> should support async actions 2`] = `
+<div>
+  <div>
+    10
+  </div>
+  <button
+    id="update"
+    onClick={[Function]}
+  >
+    Update
+  </button>
+  <button
+    id="reset"
+    onClick={[Function]}
+  >
+    Reset After 1 second
+  </button>
+</div>
+`;
+
+exports[`Rendering the <Consumer> should support multiple arguments on actions 1`] = `
+<div>
+  <div>
+    7
+  </div>
+  <button
+    onClick={[Function]}
+  >
+    Increment
+  </button>
+</div>
+`;
