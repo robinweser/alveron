@@ -20,10 +20,10 @@ npm i --save react-woodworm
 
 ## Documentation
 
-* [Introduction](react-woodworm.js.org/Introduction.html)
-* [Concepts](react-woodworm.js.org/Concepts.html)
-* [Examples](react-woodworm.js.org/Examples.html)
-* [API Reference](react-woodworm.js.org/API.html)
+* [Introduction](https://react-woodworm.js.org/Introduction.html)
+* [Concepts](https://react-woodworm.js.org/Concepts.html)
+* [Examples](https://react-woodworm.js.org/Examples.html)
+* [API Reference](https://react-woodworm.js.org/API.html)
 
 ## The Gist
 ```javascript
@@ -34,13 +34,14 @@ const model = 0
 const actions = {
   increment: prevState => prevState + 1,
   decrement: prevState => prevState - 1,
+  reset: () => model
 }
 
 // It also supports async side effects
 // this is useful if you e.g. do API calls
 const effects = {
-  resetAsync: setState => setTimeout(
-    () => setState(() => 0),
+  resetAsync: actions => setTimeout(
+    actions.reset,
     1000
   )
 }
@@ -71,7 +72,3 @@ const Counter = () => (
 react-woodworm is licensed under the [MIT License](http://opensource.org/licenses/MIT).<br>
 Documentation is licensed under [Creative Common License](http://creativecommons.org/licenses/by/4.0/).<br>
 Created with ♥ by [@rofrischmann](http://rofrischmann.de).
-
-
-
-

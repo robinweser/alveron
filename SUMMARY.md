@@ -15,6 +15,6 @@
 * [3. Examples](docs/Examples.md)
   * [3.1. Counter](docs/examples/Counter.md)
 * [4. API Reference](docs/API.md)
-  * [4.1. createStore](docs/exaapimples/createStore.md)
+  * [4.1. createStore](docs/api/createStore.md)
   * [4.2. Provider](docs/api/Provider.md)
   * [4.3. Consumer](docs/api/Consumer.md)
