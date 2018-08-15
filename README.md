@@ -19,10 +19,10 @@ npm i --save react-woodworm
 
 ## Documentation
 
-* [Introduction](https://react-woodworm.js.org/Introduction.html)
-* [Concepts](https://react-woodworm.js.org/Concepts.html)
-* [Examples](https://react-woodworm.js.org/Examples.html)
-* [API Reference](https://react-woodworm.js.org/API.html)
+* [Introduction](https://react-woodworm.js.org/docs/Introduction.html)
+* [Concepts](https://react-woodworm.js.org/docs/Concepts.html)
+* [Examples](https://react-woodworm.js.org/docs/Examples.html)
+* [API Reference](https://react-woodworm.js.org/docs/API.html)
 
 ## The Gist
 ```javascript
