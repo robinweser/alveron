@@ -36,7 +36,7 @@ describe('Rendering the <Consumer>', () => {
     const tree = TestRenderer.create(
       <Provider>
         <Consumer>
-          {state => <div>{JSON.stringify(state, null, 2)}</div>}
+          {({ state }) => <div>{JSON.stringify(state, null, 2)}</div>}
         </Consumer>
       </Provider>
     )
@@ -58,7 +58,7 @@ describe('Rendering the <Consumer>', () => {
     const tree = TestRenderer.create(
       <Provider initialState={{ foo: 5 }}>
         <Consumer>
-          {state => <div>{JSON.stringify(state, null, 2)}</div>}
+          {({ state }) => <div>{JSON.stringify(state, null, 2)}</div>}
         </Consumer>
       </Provider>
     )
@@ -83,7 +83,7 @@ describe('Rendering the <Consumer>', () => {
     const tree = TestRenderer.create(
       <Provider>
         <Consumer>
-          {(state, actions) => (
+          {({ state, actions }) => (
             <div>
               <div>{JSON.stringify(state, null, 2)}</div>
               <button onClick={() => actions.update(10)}>Update</button>
@@ -111,7 +111,7 @@ describe('Rendering the <Consumer>', () => {
     const tree = TestRenderer.create(
       <Provider>
         <Consumer>
-          {(state, actions) => (
+          {({ state, actions }) => (
             <div>
               <div>{JSON.stringify(state, null, 2)}</div>
               <button onClick={() => actions.increment(5, 2)}>Increment</button>
@@ -132,16 +132,17 @@ describe('Rendering the <Consumer>', () => {
       model: 10,
       actions: {
         update: state => state + 1,
+        reset: () => 10,
       },
       effects: {
-        resetAsync: setState => setTimeout(setState, 1000, () => 10),
+        resetAsync: actions => setTimeout(actions.reset, 1000),
       },
     })
 
     const tree = TestRenderer.create(
       <Provider>
         <Consumer>
-          {(state, actions, effects) => (
+          {({ state, actions, effects }) => (
             <div>
               <div>{state}</div>
               <button id="update" onClick={actions.update}>
@@ -178,7 +179,7 @@ describe('Rendering the <Consumer>', () => {
     const Counter = () => (
       <Provider>
         <Consumer>
-          {(state, actions) => (
+          {({ state, actions }) => (
             <div>
               <div>Count: {state}</div>
               <button onClick={actions.increment}>+</button>

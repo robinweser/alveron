@@ -27,5 +27,6 @@ lib
 es
 .vscode
 coverage
+_book
 
 \.history/
