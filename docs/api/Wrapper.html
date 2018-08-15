@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="en" >
     <head>
-        <title>1.5. Ecosystem · react-woodworm</title>
+        <title>4.4. Wrapper · react-woodworm</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -61,10 +61,8 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../Concepts.html" />
     
-    
-    <link rel="prev" href="Comparison.html" />
+    <link rel="prev" href="Consumer.html" />
     
 
     </head>
@@ -120,9 +118,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="Motivation.html">
+        <li class="chapter " data-level="1.2.1" data-path="../introduction/Motivation.html">
             
-                <a href="Motivation.html">
+                <a href="../introduction/Motivation.html">
             
                     
                     1.1. Motivation
@@ -133,9 +131,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="How.html">
+        <li class="chapter " data-level="1.2.2" data-path="../introduction/How.html">
             
-                <a href="How.html">
+                <a href="../introduction/How.html">
             
                     
                     1.2. How It Works
@@ -146,9 +144,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="Caveats.html">
+        <li class="chapter " data-level="1.2.3" data-path="../introduction/Caveats.html">
             
-                <a href="Caveats.html">
+                <a href="../introduction/Caveats.html">
             
                     
                     1.3. Caveats
@@ -159,9 +157,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4" data-path="Comparison.html">
+        <li class="chapter " data-level="1.2.4" data-path="../introduction/Comparison.html">
             
-                <a href="Comparison.html">
+                <a href="../introduction/Comparison.html">
             
                     
                     1.4. Comparison
@@ -172,9 +170,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.5" data-path="Ecosystem.html">
+        <li class="chapter " data-level="1.2.5" data-path="../introduction/Ecosystem.html">
             
-                <a href="Ecosystem.html">
+                <a href="../introduction/Ecosystem.html">
             
                     
                     1.5. Ecosystem
@@ -307,9 +305,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="../api/createStore.html">
+        <li class="chapter " data-level="1.5.1" data-path="createStore.html">
             
-                <a href="../api/createStore.html">
+                <a href="createStore.html">
             
                     
                     4.1. createStore
@@ -320,9 +318,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="../api/Provider.html">
+        <li class="chapter " data-level="1.5.2" data-path="Provider.html">
             
-                <a href="../api/Provider.html">
+                <a href="Provider.html">
             
                     
                     4.2. Provider
@@ -333,9 +331,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.3" data-path="../api/Consumer.html">
+        <li class="chapter " data-level="1.5.3" data-path="Consumer.html">
             
-                <a href="../api/Consumer.html">
+                <a href="Consumer.html">
             
                     
                     4.3. Consumer
@@ -346,9 +344,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.4" data-path="../api/Wrapper.html">
+        <li class="chapter active" data-level="1.5.4" data-path="Wrapper.html">
             
-                <a href="../api/Wrapper.html">
+                <a href="Wrapper.html">
             
                     
                     4.4. Wrapper
@@ -394,7 +392,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >1.5. Ecosystem</a>
+        <a href="../.." >4.4. Wrapper</a>
     </h1>
 </div>
 
@@ -409,9 +407,36 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="ecosystem">Ecosystem</h1>
-<p>This documentation has not been written yet.<br>
-Please refer to the <a href="https://github.com/rofrischmann/react-woodworm" _target="blank">repository</a> for more information.</p>
+                                <h1 id="wrapper">Wrapper</h1>
+<p>Wrapper is just a convenient component that combines both <a href="Provider.html">Provider</a> and <a href="Consumer.html">Consumer</a> into a single component.<br>
+It helps to keep your component tree clean when using local state.</p>
+<p>It accepts all props that <a href="Provider.html">Provider</a> and <a href="Consumer.html">Consumer</a> accept and requires a render function passed as children.</p>
+<h2 id="example">Example</h2>
+<pre class="language-"><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createStore <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;react-woodworm&apos;</span>
+
+<span class="token keyword">const</span> model <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">const</span> actions <span class="token operator">=</span> <span class="token punctuation">{</span>
+  increment<span class="token punctuation">:</span> state <span class="token operator">=&gt;</span> state <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  decrement<span class="token punctuation">:</span> state <span class="token operator">=&gt;</span> state <span class="token operator">-</span> <span class="token number">1</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> Counter <span class="token operator">=</span> <span class="token function">createStore</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  actions<span class="token punctuation">,</span>
+  model
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">renderCounter</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> state<span class="token punctuation">,</span> actions <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span>
+  <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>Counter<span class="token punctuation">:</span> <span class="token punctuation">{</span>state<span class="token punctuation">}</span>
+    <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span>actions<span class="token punctuation">.</span>increment<span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token operator">+</span><span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span>actions<span class="token punctuation">.</span>decrement<span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token operator">-</span><span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">SimpleCounter</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> defaultCount <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span>
+  <span class="token operator">&lt;</span>Counter<span class="token punctuation">.</span>Wrapper<span class="token operator">&gt;</span><span class="token punctuation">{</span>renderCounter<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>Counter<span class="token punctuation">.</span>Wrapper<span class="token operator">&gt;</span>
+<span class="token punctuation">)</span>
+</code></pre>
 
                                 
                                 </section>
@@ -439,14 +464,10 @@ Please refer to the <a href="https://github.com/rofrischmann/react-woodworm" _ta
 
             
                 
-                <a href="Comparison.html" class="navigation navigation-prev " aria-label="Previous page: 1.4. Comparison">
+                <a href="Consumer.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 4.3. Consumer">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="../Concepts.html" class="navigation navigation-next " aria-label="Next page: 2. Concepts">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -455,7 +476,7 @@ Please refer to the <a href="https://github.com/rofrischmann/react-woodworm" _ta
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.5. Ecosystem","level":"1.2.5","depth":2,"next":{"title":"2. Concepts","level":"1.3","depth":1,"path":"docs/Concepts.md","ref":"docs/Concepts.md","articles":[{"title":"2.1. Model","level":"1.3.1","depth":2,"path":"docs/concepts/Model.md","ref":"docs/concepts/Model.md","articles":[]},{"title":"2.2. Actions","level":"1.3.2","depth":2,"path":"docs/concepts/Actions.md","ref":"docs/concepts/Actions.md","articles":[]},{"title":"2.3. Effects","level":"1.3.3","depth":2,"path":"docs/concepts/Effects.md","ref":"docs/concepts/Effects.md","articles":[]},{"title":"2.4. Middleware","level":"1.3.4","depth":2,"path":"docs/concepts/Middleware.md","ref":"docs/concepts/Middleware.md","articles":[]}]},"previous":{"title":"1.4. Comparison","level":"1.2.4","depth":2,"path":"docs/introduction/Comparison.md","ref":"docs/introduction/Comparison.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/react-woodworm/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/react-woodworm/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"react-woodworm","language":"en","gitbook":"*","description":"Official documentation for react-woodworm"},"file":{"path":"docs/introduction/Ecosystem.md","mtime":"2018-08-15T11:40:15.377Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2018-08-15T13:04:37.424Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.4. Wrapper","level":"1.5.4","depth":2,"previous":{"title":"4.3. Consumer","level":"1.5.3","depth":2,"path":"docs/api/Consumer.md","ref":"docs/api/Consumer.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/react-woodworm/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/react-woodworm/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"react-woodworm","language":"en","gitbook":"*","description":"Official documentation for react-woodworm"},"file":{"path":"docs/api/Wrapper.md","mtime":"2018-08-15T12:42:27.723Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2018-08-15T13:04:37.424Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
