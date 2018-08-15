@@ -25,7 +25,7 @@ export default function createStore(
   return {
     Provider: class Provider extends Component {
       static defaultProps = {
-        listeners: [],
+        middleware: [],
       }
 
       state: {
@@ -40,31 +40,22 @@ export default function createStore(
         const initialState = props.initialState || options.model
         const resolvedActions = Object.keys(actions).reduce((map, name) => {
           map[name] = (...payload) =>
-            this.setState(prevState => {
-              const newState = actions[name](prevState.state, ...payload)
-              this._emitChange(newState)
-              return {
-                state: newState,
-              }
-            })
+            this.setState(prevState => ({
+              state: this._resolveState(
+                actions[name](prevState.state, ...payload),
+                {
+                  action: name,
+                  previousState: prevState.state,
+                  payload: [...payload],
+                }
+              ),
+            }))
 
           return map
         }, {})
 
-        const update = this.setState.bind(this)
         const resolvedEffects = Object.keys(effects).reduce((map, name) => {
-          map[name] = (...payload) =>
-            effects[name](
-              reducer =>
-                update(prevState => {
-                  const newState = reducer(prevState.state)
-                  this._emitChange(newState)
-                  return {
-                    state: newState,
-                  }
-                }),
-              ...payload
-            )
+          map[name] = (...payload) => effects[name](resolvedActions, ...payload)
           return map
         }, {})
 
@@ -75,8 +66,11 @@ export default function createStore(
         }
       }
 
-      _emitChange = newState => {
-        this.props.listeners.forEach(listener => listener(newState))
+      _resolveState = (state: any, context: Object): any => {
+        return this.props.middleware.reduce(
+          (finalState, middleware) => middleware(finalState, context),
+          state
+        )
       }
 
       render() {
@@ -90,10 +84,7 @@ export default function createStore(
 
     Consumer: ({ children }) => (
       <Store.Consumer>
-        {store =>
-          validateStore(store) &&
-          children(store.state, store.actions, store.effects)
-        }
+        {store => validateStore(store) && children(store)}
       </Store.Consumer>
     ),
   }

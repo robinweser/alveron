@@ -1,5 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Rendering the <Consumer> should correctly pass context to middleware 1`] = `
+<div>
+  <div>
+    2
+  </div>
+  <button
+    id="increment"
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <button
+    id="incrementBy2"
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <button
+    id="decrement"
+    onClick={[Function]}
+  >
+    -
+  </button>
+</div>
+`;
+
+exports[`Rendering the <Consumer> should correctly pass context to middleware 2`] = `
+Array [
+  Object {
+    "action": "increment",
+    "nextState": 1,
+    "payload": Array [],
+    "previousState": 0,
+  },
+  Object {
+    "action": "decrement",
+    "nextState": 0,
+    "payload": Array [],
+    "previousState": 1,
+  },
+  Object {
+    "action": "incrementBy",
+    "nextState": 2,
+    "payload": Array [
+      2,
+    ],
+    "previousState": 0,
+  },
+]
+`;
+
 exports[`Rendering the <Consumer> should create a separate store for every Provider instance 1`] = `
 <div>
   <div>
@@ -30,7 +81,7 @@ exports[`Rendering the <Consumer> should create a separate store for every Provi
 exports[`Rendering the <Consumer> should pipe state updates through middleware 1`] = `
 <div>
   <div>
-    4
+    8
   </div>
   <button
     onClick={[Function]}
@@ -38,15 +89,6 @@ exports[`Rendering the <Consumer> should pipe state updates through middleware 1
     Update
   </button>
 </div>
-`;
-
-exports[`Rendering the <Consumer> should pipe state updates through middleware 2`] = `
-Array [
-  1,
-  2,
-  3,
-  4,
-]
 `;
 
 exports[`Rendering the <Consumer> should render the initial state 1`] = `
