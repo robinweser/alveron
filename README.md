@@ -1,7 +1,6 @@
 # react-woodworm
 
-Just like a woodworm, react-woodworm is super lightweight at **only 1kb gzipped**.<br>
-It uses React's new context feature and therefore requires React 16.3 or higher.
+Woodworm is an [Elm](http://elm-lang.org)-inspired state management library for React support asynchronous effects by default. It uses React's new context API and is super lightweight at **only 1kb gzipped**.
 
 <img alt="TravisCI" src="https://travis-ci.org/rofrischmann/react-woodworm.svg?branch=master"> <a href="https://codeclimate.com/github/rofrischmann/react-woodworm/coverage"><img alt="Test Coverage" src="https://codeclimate.com/github/rofrischmann/react-woodworm/badges/coverage.svg"></a> <img alt="npm downloads" src="https://img.shields.io/npm/dm/react-woodworm.svg"> <img alt="gzipped size" src="https://img.shields.io/bundlephobia/minzip/react-woodworm.svg?colorB=4c1&label=gzipped%20size"> <img alt="npm version" src="https://badge.fury.io/js/react-woodworm.svg">
 
