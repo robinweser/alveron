@@ -8,7 +8,7 @@ describe('Creating a store', () => {
   it('should return a Consumer and a Provider', () => {
     const store = createStore()
 
-    expect(Object.keys(store)).toEqual(['Provider', 'Consumer'])
+    expect(Object.keys(store)).toEqual(['Provider', 'Consumer', 'Wrapper'])
   })
 })
 

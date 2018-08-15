@@ -17,15 +17,30 @@ const actions = {
   decrement: state => state - 1
 }
 
-const Counter = createStore({
+const CounterStore = createStore({
   actions,
   model
 })
 
-// This will render 10 rather than 0
+const Counter = () => (
+  <CounterStore.Provider>
+    <CounterStore.Consumer>
+      {state => state}
+    </CounterStore.Consumer>
+  </CounterStore.Provider>
+)
+```
+
+#### Using initialState
+
+The following example with start the counter from 10 instead of 0.
+
+```javascript
 const StartFrom10 = () => (
-  <Counter.Provider initialState={10}>
-    <Counter.Consumer>{state => state}</Counter.Consumer>
-  </Counter.Provider>
+  <CounterStore.Provider initialState={10}>
+    <CounterStore.Consumer>
+      {state => state}
+    </CounterStore.Consumer>
+  </CounterStore.Provider>
 )
 ```

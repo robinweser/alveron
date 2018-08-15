@@ -3,6 +3,10 @@
 Apart from [actions](Actions.md), there is another way to update the state: (side) effects.<br>
 Effects do not actually update the state directly, but rather call an equivalent action once resolved.
 
+```javascript
+const Effect: void = (actions: Object, ...payload) => {}
+```
+
 They're used for asynchronous operations such as API requests or delayed calls.<br>
 For example, sending an API request to get some user data will not immediately yield an answer. The server must first receive the call, process it and send an answer over the network which unfortunately takes some time.<br>
 
