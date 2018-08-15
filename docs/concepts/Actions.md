@@ -1,7 +1,13 @@
 # Actions
 
 Actions are used to update the state in a functional way.<br>
-They are so called **reducers** that receive both the current state and some payload and return the new state. While it doesn't enforce any restrictions on how to calculate the new state, here are some recommendations:
+They are so called **reducers** that receive both the current state and some payload and return the new state.
+
+```javascript
+const Action: any = (previousState: any, ...payload) => newState
+```
+
+While it doesn't enforce any restrictions on how to calculate the new state, here are some recommendations:
 
 * Do not mutate the current state, but rather use **immutable data structures**
 * Ensure that all actions are **pure functions**
