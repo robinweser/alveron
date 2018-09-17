@@ -1,4 +1,4 @@
-# Alveron Counter Example
+# Alveron Async REST API Example
 
 ## Installation
 
