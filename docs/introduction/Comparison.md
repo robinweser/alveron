@@ -1,4 +1,9 @@
 # Comparison
 
-This documentation has not been written yet.<br>
-Please refer to the [repository](https://github.com/rofrischmann/react-woodworm) for more information.
+This section should help to understand the differences to other (React based) state management libraries.
+
+## Redux
+
+> Talking about Redux, we're actually refering to its React bindings (react-redux) as react-woodworm is React-only anyways.
+
+## Constate
