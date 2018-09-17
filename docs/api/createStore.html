@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="en" >
     <head>
-        <title>5.1. createStore · react-woodworm</title>
+        <title>5.1. createStore · Alveron</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -320,6 +320,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.5.2" data-path="../examples/APIHandler.html">
+            
+                <a href="../examples/APIHandler.html">
+            
+                    
+                    4.2. API Handler
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -371,6 +384,19 @@
             
                     
                     5.3. Consumer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="Wrapper.html">
+            
+                <a href="Wrapper.html">
+            
+                    
+                    5.4. Wrapper
             
                 </a>
             
@@ -430,7 +456,7 @@
                                 
                                 <h1 id="createstore">createStore</h1>
 <p>The only public API as of today.<br>
-It creates a new store instance that provides both <a href="Provider.html">Provider</a> and <a href="Consumer.html">Consumer</a> components to interact with the store.</p>
+It creates a new store instance that provides both <a href="Provider.html">Provider</a> and <a href="Consumer.html">Consumer</a> components as well as a shorthand <a href="Wrapper.html">Wrapper</a> component to interact with the store.</p>
 <p>It accepts a single options object, that allows the following options.</p>
 <h2 id="options">Options</h2>
 <table>
@@ -460,9 +486,9 @@ It creates a new store instance that provides both <a href="Provider.html">Provi
 </tbody>
 </table>
 <h2 id="returns">Returns</h2>
-<p><em>(Object)</em> an object containing the <a href="Provider.html">Provider</a> and <a href="Consumer.html">Consumer</a> components. </p>
+<p><em>(Object)</em> an object containing the <a href="Provider.html">Provider</a>, <a href="Consumer.html">Consumer</a> and <a href="Wrapper.html">Wrapper</a> components. </p>
 <h2 id="example">Example</h2>
-<pre class="language-"><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createStore <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;react-woodworm&apos;</span>
+<pre class="language-"><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createStore <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;alveron&apos;</span>
 
 <span class="token keyword">const</span> model <span class="token operator">=</span> <span class="token number">0</span>
 <span class="token keyword">const</span> actions <span class="token operator">=</span> <span class="token punctuation">{</span>
@@ -470,7 +496,7 @@ It creates a new store instance that provides both <a href="Provider.html">Provi
   decrement<span class="token punctuation">:</span> state <span class="token operator">=&gt;</span> state <span class="token operator">-</span> <span class="token number">1</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">const</span> <span class="token punctuation">{</span> Provider<span class="token punctuation">,</span> Consumer <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">createStore</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> Provider<span class="token punctuation">,</span> Consumer<span class="token punctuation">,</span> Wrapper <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">createStore</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   actions<span class="token punctuation">,</span>
   model
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
@@ -518,7 +544,7 @@ It creates a new store instance that provides both <a href="Provider.html">Provi
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5.1. createStore","level":"1.6.1","depth":2,"next":{"title":"5.2. Provider","level":"1.6.2","depth":2,"path":"docs/api/Provider.md","ref":"docs/api/Provider.md","articles":[]},"previous":{"title":"5. API Reference","level":"1.6","depth":1,"path":"docs/API.md","ref":"docs/API.md","articles":[{"title":"5.1. createStore","level":"1.6.1","depth":2,"path":"docs/api/createStore.md","ref":"docs/api/createStore.md","articles":[]},{"title":"5.2. Provider","level":"1.6.2","depth":2,"path":"docs/api/Provider.md","ref":"docs/api/Provider.md","articles":[]},{"title":"5.3. Consumer","level":"1.6.3","depth":2,"path":"docs/api/Consumer.md","ref":"docs/api/Consumer.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/react-woodworm/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/react-woodworm/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"react-woodworm","language":"en","gitbook":"*","description":"Official documentation for react-woodworm"},"file":{"path":"docs/api/createStore.md","mtime":"2018-08-16T12:57:27.542Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2018-08-16T17:38:09.873Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5.1. createStore","level":"1.6.1","depth":2,"next":{"title":"5.2. Provider","level":"1.6.2","depth":2,"path":"docs/api/Provider.md","ref":"docs/api/Provider.md","articles":[]},"previous":{"title":"5. API Reference","level":"1.6","depth":1,"path":"docs/API.md","ref":"docs/API.md","articles":[{"title":"5.1. createStore","level":"1.6.1","depth":2,"path":"docs/api/createStore.md","ref":"docs/api/createStore.md","articles":[]},{"title":"5.2. Provider","level":"1.6.2","depth":2,"path":"docs/api/Provider.md","ref":"docs/api/Provider.md","articles":[]},{"title":"5.3. Consumer","level":"1.6.3","depth":2,"path":"docs/api/Consumer.md","ref":"docs/api/Consumer.md","articles":[]},{"title":"5.4. Wrapper","level":"1.6.4","depth":2,"path":"docs/api/Wrapper.md","ref":"docs/api/Wrapper.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/alveron/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/alveron/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Alveron","language":"en","gitbook":"*","description":"Official documentation for alveron"},"file":{"path":"docs/api/createStore.md","mtime":"2018-09-17T10:16:58.574Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2018-09-17T10:18:17.049Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
