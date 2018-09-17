@@ -22,6 +22,7 @@ Thumbs.db
 
 *.js.map
 **/node_modules/
+**/.next
 npm-debug.log
 lib
 es

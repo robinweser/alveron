@@ -1,14 +1,16 @@
 # Example: Counter
 
+> You may also check out the [Counter Example package](https://github.com/rofrischmann/alveron/tree/master/examples/Counter/README.md) to see these examples in action.
+
 The counter example has emerged as one of the most basic examples for showcasing state management tools. Here we go:
 
 ### Basic Counter
 ```javascript
 import React from 'react'
-import { createStore } from 'react-woodworm'
+import { createStore } from 'alveron'
 
 const model = 0
-const actions {
+const actions = {
   increment: state => state + 1,
   decrement: state => state - 1
 }
@@ -38,10 +40,10 @@ Instead of always incrementing or decrementing by one, we can also pass a step v
 
 ```javascript
 import React from 'react'
-import { createStore } from 'react-woodworm'
+import { createStore } from 'alveron'
 
 const model = 0
-const actions {
+const actions = {
   increment: state => state + 1,
   decrement: state => state - 1,
   incrementBy: (state, step) => state + step,
@@ -75,10 +77,10 @@ Apart from triggering state changes through user interaction, we can also use ef
 
 ```javascript
 import React from 'react'
-import { createStore } from 'react-woodworm'
+import { createStore } from 'alveron'
 
 const model = 0
-const actions {
+const actions = {
   increment: state => state + 1,
   decrement: state => state - 1
 }
