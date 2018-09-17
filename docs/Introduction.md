@@ -5,3 +5,4 @@
 3. [Caveats](introduction/Caveats.md)
 4. [Comparison](introduction/Comparison.md)
 5. [Ecosystem](introduction/Ecosystem.md)
+6. [Examples](introduction/Examples.md)
