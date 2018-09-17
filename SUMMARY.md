@@ -18,3 +18,4 @@
   * [4.1. createStore](docs/api/createStore.md)
   * [4.2. Provider](docs/api/Provider.md)
   * [4.3. Consumer](docs/api/Consumer.md)
+  * [4.4. Wrapper](docs/api/Wrapper.md)

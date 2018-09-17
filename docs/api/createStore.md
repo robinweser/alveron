@@ -1,7 +1,7 @@
 # createStore
 
 The only public API as of today.<br>
-It creates a new store instance that provides both [Provider](Provider.md) and [Consumer](Consumer.md) components to interact with the store.
+It creates a new store instance that provides both [Provider](Provider.md) and [Consumer](Consumer.md) components as well as a shorthand [Wrapper](Wrapper.md) component to interact with the store.
 
 It accepts a single options object, that allows the following options.
 
@@ -13,7 +13,7 @@ It accepts a single options object, that allows the following options.
 | model | *(any?)* | The default [model](../concepts/Model.md) reflecting the initial state shape |
 
 ## Returns
-*(Object)* an object containing the [Provider](Provider.md) and [Consumer](Consumer.md) components. 
+*(Object)* an object containing the [Provider](Provider.md), [Consumer](Consumer.md) and [Wrapper](Wrapper.md) components. 
 
 ## Example
 ```javascript
@@ -25,7 +25,7 @@ const actions = {
   decrement: state => state - 1
 }
 
-const { Provider, Consumer } = createStore({
+const { Provider, Consumer, Wrapper } = createStore({
   actions,
   model
 })
