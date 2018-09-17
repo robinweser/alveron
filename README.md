@@ -31,9 +31,9 @@ npm i --save alveron
 * [API Reference](https://alveron.js.org/docs/API.html)
 
 ## [Examples](https://alveron.js.org/docs/introduction/Examples.html)
-* [Counter](../examples/Counter)
-* [TodoList](../examples/TodoList)
-* [Async API](../examples/AsyncAPI)
+* [Counter](./examples/Counter)
+* [TodoList](./examples/TodoList)
+* [Async API](./examples/AsyncAPI)
 
 ## The Gist
 ```javascript
