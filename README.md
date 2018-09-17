@@ -1,5 +1,7 @@
 # alveron
 
+> **Disclaimer**: Alveron was formerly published as **react-woodworm**. It was renamed in order to replace the previous [alveron](https://github.com/rofrischmann/alveron-old) package. The old react-woodworm version 4.0 is now published as alveron version 2.0. Sorry for the inconvenience.
+
 Alveron is an [Elm](http://elm-lang.org)-inspired state management library for React support asynchronous effects by default.<br>It uses React's new context API and is super lightweight at **only 1kb gzipped**.
 
 It can handle both **local** [component state](https://reactjs.org/docs/faq-state.html) as well as **global** state.
@@ -73,9 +75,10 @@ const Counter = () => (
 ```
 
 ## Users
-
+- [weser.io](https://weser.io)
+- [Zeit](http://zeit.co)
 
 ## License
-alveron is licensed under the [MIT License](http://opensource.org/licenses/MIT).<br>
+Alveron is licensed under the [MIT License](http://opensource.org/licenses/MIT).<br>
 Documentation is licensed under [Creative Common License](http://creativecommons.org/licenses/by/4.0/).<br>
 Created with ♥ by [@rofrischmann](http://rofrischmann.de).
