@@ -1,7 +1,7 @@
 {
   "title": "Alveron",
   "author": "Robin Frischmann <robin@rofrischmann.de>",
-  "description": "Official documentation for alveron",
+  "description": "Official documentation for Alveron",
   "language": "en",
   "plugins": ["edit-link", "prism", "-highlight", "github", "anker-enable", "advanced-emoji"],
   "pluginsConfig": {
