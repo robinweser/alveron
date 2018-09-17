@@ -7,7 +7,7 @@ It accepts all props that [Provider](Provider.md) and [Consumer](Consumer.md) ac
 
 ## Example
 ```javascript
-import { createStore } from 'react-woodworm'
+import { createStore } from 'alveron'
 
 const model = 0
 const actions = {

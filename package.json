@@ -1,7 +1,7 @@
 {
-  "name": "react-woodworm",
-  "version": "4.1.0",
-  "description": "Spread your state like a woodworm - down the tree",
+  "name": "alveron",
+  "version": "2.0.0",
+  "description": "Elm-inspired state management for React in 1kb",
   "main": "lib/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -26,7 +26,7 @@
     "lib/**",
     "es/**"
   ],
-  "repository": "https://github.com/rofrischmann/react-woodworm/",
+  "repository": "https://github.com/rofrischmann/alveron/",
   "keywords": [
     "react",
     "context",

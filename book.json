@@ -1,16 +1,16 @@
 {
-  "title": "react-woodworm",
+  "title": "Alveron",
   "author": "Robin Frischmann <robin@rofrischmann.de>",
-  "description": "Official documentation for react-woodworm",
+  "description": "Official documentation for alveron",
   "language": "en",
   "plugins": ["edit-link", "prism", "-highlight", "github", "anker-enable", "advanced-emoji"],
   "pluginsConfig": {
     "edit-link": {
-      "base": "https://github.com/rofrischmann/react-woodworm/tree/master",
+      "base": "https://github.com/rofrischmann/alveron/tree/master",
       "label": "Edit This Page"
     },
     "github": {
-      "url": "https://github.com/rofrischmann/react-woodworm/"
+      "url": "https://github.com/rofrischmann/alveron/"
     }
   }
 }

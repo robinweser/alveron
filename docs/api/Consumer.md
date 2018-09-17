@@ -8,7 +8,7 @@ It provides a render-prop interface that passes a single object containing state
 
 ## Example
 ```javascript
-import { createStore } from 'react-woodworm'
+import { createStore } from 'alveron'
 
 const model = 0
 const actions = {

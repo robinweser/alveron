@@ -17,7 +17,7 @@ It accepts a single options object, that allows the following options.
 
 ## Example
 ```javascript
-import { createStore } from 'react-woodworm'
+import { createStore } from 'alveron'
 
 const model = 0
 const actions = {

@@ -9,7 +9,7 @@ The Provider component keeps an instance of the store and provides it to all nes
 
 ## Example
 ```javascript
-import { createStore } from 'react-woodworm'
+import { createStore } from 'alveron'
 
 const model = 0
 const actions = {

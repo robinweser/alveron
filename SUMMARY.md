@@ -16,6 +16,7 @@
   * [3.1. Performance](docs/advanced/Performance.md)
 * [4. Examples](docs/Examples.md)
   * [4.1. Counter](docs/examples/Counter.md)
+  * [4.2. API Handler](docs/examples/APIHandler.md)
 * [5. API Reference](docs/API.md)
   * [5.1. createStore](docs/api/createStore.md)
   * [5.2. Provider](docs/api/Provider.md)

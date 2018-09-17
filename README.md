@@ -1,8 +1,12 @@
-# react-woodworm
+# alveron
 
-Woodworm is an [Elm](http://elm-lang.org)-inspired state management library for React support asynchronous effects by default.<br>It uses React's new context API and is super lightweight at **only 1kb gzipped**.
+> **Disclaimer**: Alveron was formerly published as **react-woodworm**. It was renamed in order to replace the previous [alveron](https://github.com/rofrischmann/alveron-old) package. The old react-woodworm version 4.0 is now published as alveron version 2.0. Sorry for the inconvenience.
 
-<img alt="TravisCI" src="https://travis-ci.org/rofrischmann/react-woodworm.svg?branch=master"> <a href="https://codeclimate.com/github/rofrischmann/react-woodworm/coverage"><img alt="Test Coverage" src="https://codeclimate.com/github/rofrischmann/react-woodworm/badges/coverage.svg"></a> <img alt="npm downloads" src="https://img.shields.io/npm/dm/react-woodworm.svg"> <img alt="gzipped size" src="https://img.shields.io/bundlephobia/minzip/react-woodworm.svg?colorB=4c1&label=gzipped%20size"> <img alt="npm version" src="https://badge.fury.io/js/react-woodworm.svg">
+Alveron is an [Elm](http://elm-lang.org)-inspired state management library for React support asynchronous effects by default.<br>It uses React's new context API and is super lightweight at **only 1kb gzipped**.
+
+It can handle both **local** [component state](https://reactjs.org/docs/faq-state.html) as well as **global** state.
+
+<img alt="TravisCI" src="https://travis-ci.org/rofrischmann/alveron.svg?branch=master"> <a href="https://codeclimate.com/github/rofrischmann/alveron/coverage"><img alt="Test Coverage" src="https://codeclimate.com/github/rofrischmann/alveron/badges/coverage.svg"></a> <img alt="npm downloads" src="https://img.shields.io/npm/dm/alveron.svg"> <img alt="gzipped size" src="https://img.shields.io/bundlephobia/minzip/alveron.svg?colorB=4c1&label=gzipped%20size"> <img alt="npm version" src="https://badge.fury.io/js/alveron.svg">
 
 ## Support Me
 If you're using [Robin Frischmann](https://rofrischmann.de)'s packages, please consider supporting his [Open Source Work](https://github.com/rofrischmann) on [**Patreon**](https://www.patreon.com/rofrischmann).
@@ -10,24 +14,27 @@ If you're using [Robin Frischmann](https://rofrischmann.de)'s packages, please c
 ## Installation
 ```sh
 # yarn
-yarn add react-woodworm
+yarn add alveron
 
 # npm
-npm i --save react-woodworm
+npm i --save alveron
 ```
 > **Caution**: It requires `^react@16.3.0` to be present.
 
 ## Documentation
 
-* [Introduction](https://react-woodworm.js.org/docs/Introduction.html)
-* [Concepts](https://react-woodworm.js.org/docs/Concepts.html)
-* [Examples](https://react-woodworm.js.org/docs/Examples.html)
-* [API Reference](https://react-woodworm.js.org/docs/API.html)
+> We recommend starting with [Why](https://alveron.js.org/docs/introduction/Motivation.html) and [How](https://alveron.js.org/docs/introduction/How.html) to understand why Alveron exists and how it works.
+
+* [Introduction](https://alveron.js.org/docs/Introduction.html)
+* [Concepts](https://alveron.js.org/docs/Concepts.html)
+* [Advanced](https://alveron.js.org/docs/Advanced.html)
+* [Examples](https://alveron.js.org/docs/Examples.html)
+* [API Reference](https://alveron.js.org/docs/API.html)
 
 ## The Gist
 ```javascript
 import React from 'react'
-import { createStore } from 'react-woodworm'
+import { createStore } from 'alveron'
 
 const model = 0
 const actions = {
@@ -67,7 +74,11 @@ const Counter = () => (
 )
 ```
 
+## Users
+- [weser.io](https://weser.io)
+- [Zeit](http://zeit.co)
+
 ## License
-react-woodworm is licensed under the [MIT License](http://opensource.org/licenses/MIT).<br>
+Alveron is licensed under the [MIT License](http://opensource.org/licenses/MIT).<br>
 Documentation is licensed under [Creative Common License](http://creativecommons.org/licenses/by/4.0/).<br>
 Created with ♥ by [@rofrischmann](http://rofrischmann.de).
