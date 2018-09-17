@@ -1,6 +1,6 @@
 # Alveron Counter Example
 
-<img src="https://github.com/rofrischmann/alveron/blob/master/docs/res/Counter.gif">
+<img src="https://raw.githubusercontent.com/rofrischmann/alveron/master/docs/res/Counter.gif">
 
 ## Installation
 
