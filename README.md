@@ -1,4 +1,4 @@
-# alveron
+# Alveron
 
 > **Disclaimer**: Alveron was formerly published as **react-woodworm**. It was renamed in order to replace the previous [alveron](https://github.com/rofrischmann/alveron-old) package. The old react-woodworm version 4.0 is now published as alveron version 2.0. Sorry for the inconvenience.
 
