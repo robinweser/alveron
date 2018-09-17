@@ -1,5 +1,7 @@
 # Alveron Counter Example
 
+<img src="https://github.com/rofrischmann/alveron/blob/master/docs/res/Counter.gif">
+
 ## Installation
 
 To install the dependencies, run:

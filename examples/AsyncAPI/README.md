@@ -1,5 +1,11 @@
 # Alveron Async REST API Example
 
+This example uses the free [JSON Placeholder API](https://jsonplaceholder.typicode.com) to fetch user names.<br>
+
+As the API does not really update user data on *POST* and *DELETE*, we have to *fake* ids and user names.
+
+<img src="https://github.com/rofrischmann/alveron/blob/master/docs/res/AsyncAPI.gif">
+
 ## Installation
 
 To install the dependencies, run:
