@@ -56,29 +56,29 @@ const effects = {
   )
 }
 
-const { Provider, Consumer } = createStore({
+const { Wrapper } = createStore({
   model,
   actions,
   effects
 })
 
 const Counter = () => (
-  <Provider>
-    <Consumer>
-      {({ state, actions, effects }) => (
-        <div>
-          Count: {state}
-          <button onClick={actions.increment}>+</button>
-          <button onClick={actions.decrement}>-</button>
-          <button onClick={effects.resetAsync}>Reset after 1 second</button>
-        </div>
-      )}
-    </Consumer>
-  </Provider>
+  <Wrapper>
+    {({ state, actions, effects }) => (
+      <div>
+        Count: {state}
+        <button onClick={actions.increment}>+</button>
+        <button onClick={actions.decrement}>-</button>
+        <button onClick={effects.resetAsync}>Reset after 1 second</button>
+      </div>
+    )}
+  </Wrapper>
 )
 ```
 
 ## Users
+
+- [dm-drogerie markt](https://dm.de)
 - [weser.io](https://weser.io)
 - [Zeit](http://zeit.co)
 

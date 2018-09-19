@@ -1,6 +1,6 @@
 # Alveron TodoList Example
 
-<img src="https://raw.githubusercontent.com/rofrischmann/alveron/master/docs/res/TodoList.gif">
+<img style="border:1px solid black" src="https://raw.githubusercontent.com/rofrischmann/alveron/master/docs/res/TodoList.gif">
 
 ## Installation
 

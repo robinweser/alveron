@@ -6,13 +6,13 @@
 
 ## [Counter](https://github.com/rofrischmann/alveron/tree/master/examples/Counter)
 
+<img style="border:1px solid black" src="https://raw.githubusercontent.com/rofrischmann/alveron/master/docs/res/Counter.gif">
+
 The first example is a super basic counter.<br>
 One can find the source code under [examples/Counter](https://github.com/rofrischmann/alveron/tree/master/examples/Counter).<br>
 You will also find a guide how to run the example.
 
-<img src="https://raw.githubusercontent.com/rofrischmann/alveron/master/docs/res/Counter.gif">
-
-It covers:
+**It covers:**
 * Model
 * Actions
 * Actions with Payload
@@ -20,13 +20,13 @@ It covers:
 
 ## [TodoList](https://github.com/rofrischmann/alveron/tree/master/examples/TodoList)
 
+<img style="border:1px solid black" src="https://raw.githubusercontent.com/rofrischmann/alveron/master/docs/res/TodoList.gif">
+
 A TodoList is a common example to showcase basic state management.<br>
 One can find the source code under [examples/TodoList](https://github.com/rofrischmann/alveron/tree/master/examples/TodoList).<br>
 You will also find a guide how to run the example.
 
-<img src="https://raw.githubusercontent.com/rofrischmann/alveron/master/docs/res/TodoList.gif">
-
-It covers:
+**It covers:**
 * Model
 * Actions
 * Actions with Payload
@@ -35,13 +35,13 @@ It covers:
 
 ## [Async API](https://github.com/rofrischmann/alveron/tree/master/examples/AsyncAPI)
 
+<img style="border:1px solid black" src="https://raw.githubusercontent.com/rofrischmann/alveron/master/docs/res/AsyncAPI.gif">
+
 This example is a bit more advanced as it included fetching data from an actual REST API.<br>
 One can find the source code under [examples/AsyncAPI](https://github.com/rofrischmann/alveron/tree/master/examples/TodoList).<br>
 You will also find a guide how to run the example.
 
-<img src="https://raw.githubusercontent.com/rofrischmann/alveron/master/docs/res/AsyncAPI.gif">
-
-It covers:
+**It covers:**
 * Model
 * Actions
 * Actions with Payload

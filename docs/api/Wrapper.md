@@ -15,20 +15,20 @@ const actions = {
   decrement: state => state - 1
 }
 
-const Counter = createStore({
+const { Wrapper } = createStore({
   actions,
   model
 })
 
-const renderCounter = ({ state, actions }) => (
-  <div>
-    <div>Counter: {state}
-    <button onClick={actions.increment}>+</button>
-    <button onClick={actions.decrement}>-</button>
-  </div>
-)
-
-const SimpleCounter = ({ defaultCount }) => (
-  <Counter.Wrapper>{renderCounter}</Counter.Wrapper>
+const Counter = ({ defaultCount }) => (
+  <Wrapper>
+    {({ state, actions }) => (
+      <div>
+        <div>Counter: {state}</div>
+        <button onClick={actions.increment}>+</button>
+        <button onClick={actions.decrement}>-</button>
+      </div>
+    )}
+  </Wrapper>
 )
 ```

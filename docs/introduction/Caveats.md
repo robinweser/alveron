@@ -1,6 +1,6 @@
 # Caveats
 
-####  1. Unique Store Instances
+##  1. Unique Store Instances
 
 [createStore](../api/createStore.md) doesn't actually create a store directly, but rather create a factory by providing the [Provider](../api/Provider.md) component.<br>
 Every Provider component therefore manages its own state object, that is derived from the store model and the passed initialState.<br>
