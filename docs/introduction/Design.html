@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="en" >
     <head>
-        <title>4.1. createStore · Alveron</title>
+        <title>1.3. Design Principles · Alveron</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Provider.html" />
+    <link rel="next" href="Caveats.html" />
     
     
-    <link rel="prev" href="../API.html" />
+    <link rel="prev" href="How.html" />
     
 
     </head>
@@ -120,9 +120,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="../introduction/Motivation.html">
+        <li class="chapter " data-level="1.2.1" data-path="Motivation.html">
             
-                <a href="../introduction/Motivation.html">
+                <a href="Motivation.html">
             
                     
                     1.1. Motivation
@@ -133,9 +133,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="../introduction/How.html">
+        <li class="chapter " data-level="1.2.2" data-path="How.html">
             
-                <a href="../introduction/How.html">
+                <a href="How.html">
             
                     
                     1.2. How It Works
@@ -146,9 +146,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="../introduction/Design.html">
+        <li class="chapter active" data-level="1.2.3" data-path="Design.html">
             
-                <a href="../introduction/Design.html">
+                <a href="Design.html">
             
                     
                     1.3. Design Principles
@@ -159,9 +159,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4" data-path="../introduction/Caveats.html">
+        <li class="chapter " data-level="1.2.4" data-path="Caveats.html">
             
-                <a href="../introduction/Caveats.html">
+                <a href="Caveats.html">
             
                     
                     1.4. Caveats
@@ -172,9 +172,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.5" data-path="../introduction/Comparison.html">
+        <li class="chapter " data-level="1.2.5" data-path="Comparison.html">
             
-                <a href="../introduction/Comparison.html">
+                <a href="Comparison.html">
             
                     
                     1.5. Comparison
@@ -185,9 +185,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.6" data-path="../introduction/Ecosystem.html">
+        <li class="chapter " data-level="1.2.6" data-path="Ecosystem.html">
             
-                <a href="../introduction/Ecosystem.html">
+                <a href="Ecosystem.html">
             
                     
                     1.6. Ecosystem
@@ -198,9 +198,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.7" data-path="../introduction/Examples.html">
+        <li class="chapter " data-level="1.2.7" data-path="Examples.html">
             
-                <a href="../introduction/Examples.html">
+                <a href="Examples.html">
             
                     
                     1.7. Examples
@@ -346,9 +346,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.5.1" data-path="createStore.html">
+        <li class="chapter " data-level="1.5.1" data-path="../api/createStore.html">
             
-                <a href="createStore.html">
+                <a href="../api/createStore.html">
             
                     
                     4.1. createStore
@@ -359,9 +359,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="Provider.html">
+        <li class="chapter " data-level="1.5.2" data-path="../api/Provider.html">
             
-                <a href="Provider.html">
+                <a href="../api/Provider.html">
             
                     
                     4.2. Provider
@@ -372,9 +372,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.3" data-path="Consumer.html">
+        <li class="chapter " data-level="1.5.3" data-path="../api/Consumer.html">
             
-                <a href="Consumer.html">
+                <a href="../api/Consumer.html">
             
                     
                     4.3. Consumer
@@ -385,9 +385,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.4" data-path="Wrapper.html">
+        <li class="chapter " data-level="1.5.4" data-path="../api/Wrapper.html">
             
-                <a href="Wrapper.html">
+                <a href="../api/Wrapper.html">
             
                     
                     4.4. Wrapper
@@ -433,7 +433,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >4.1. createStore</a>
+        <a href="../.." >1.3. Design Principles</a>
     </h1>
 </div>
 
@@ -448,53 +448,22 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="createstore">createStore</h1>
-<p>The only public API as of today.<br>
-It creates a new store instance that provides both <a href="Provider.html">Provider</a> and <a href="Consumer.html">Consumer</a> components as well as a shorthand <a href="Wrapper.html">Wrapper</a> component to interact with the store.</p>
-<p>It accepts a single options object, that allows the following options.</p>
-<h2 id="options">Options</h2>
-<table>
-<thead>
-<tr>
-<th>Argument</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>actions</td>
-<td><em>(Object?)</em></td>
-<td>A map of <a href="../concepts/Actions.html">actions</a> where the <em>key</em> represents the action name and the <em>value</em> represents the action reducer</td>
-</tr>
-<tr>
-<td>effects</td>
-<td><em>(Object?)</em></td>
-<td>A map of <a href="../concepts/Effects.html">effects</a> where the <em>key</em> represents the effect name and the <em>value</em> represents the updater</td>
-</tr>
-<tr>
-<td>model</td>
-<td><em>(any?)</em></td>
-<td>The default <a href="../concepts/Model.html">model</a> reflecting the initial state shape</td>
-</tr>
-</tbody>
-</table>
-<h2 id="returns">Returns</h2>
-<p><em>(Object)</em> an object containing the <a href="Provider.html">Provider</a>, <a href="Consumer.html">Consumer</a> and <a href="Wrapper.html">Wrapper</a> components. </p>
-<h2 id="example">Example</h2>
-<pre class="language-"><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createStore <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;alveron&apos;</span>
-
-<span class="token keyword">const</span> model <span class="token operator">=</span> <span class="token number">0</span>
-<span class="token keyword">const</span> actions <span class="token operator">=</span> <span class="token punctuation">{</span>
-  increment<span class="token punctuation">:</span> state <span class="token operator">=&gt;</span> state <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span>
-  decrement<span class="token punctuation">:</span> state <span class="token operator">=&gt;</span> state <span class="token operator">-</span> <span class="token number">1</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">const</span> <span class="token punctuation">{</span> Provider<span class="token punctuation">,</span> Consumer<span class="token punctuation">,</span> Wrapper <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">createStore</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  actions<span class="token punctuation">,</span>
-  model
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre>
+                                <h1 id="design-principles">Design Principles</h1>
+<h2 id="state-is-read-only">State is read-only</h2>
+<blockquote>
+<p>This principle is inspired by <a href="https://redux.js.org/introduction/threeprinciples" _target="blank">Redux</a> and is basically a rewritten copy of their documentation. </p>
+</blockquote>
+<p><strong>The only way to change the state is by calling <a href="../concepts/Actions.html">actions</a></strong>.<br>
+A action is a function that reduces the previous state and a payload to the next state.</p>
+<p>This ensures that neither the views nor the network callbacks will ever write directly to the state. Instead, they use predefined actions to ensure predictable state changes. </p>
+<h2 id="actions-are-pure-functions">Actions are pure functions</h2>
+<p>As mentioned above, in order to update the state, actions are called with an optional payload.<br>
+Those actions follow the reducer-pattern as they reduce the current state and the payload to the next state. While we can&apos;t enforce pure reducers, it&apos;s highly recommended and for your own good.<br>
+Check the <a href="../concepts/Actions.html">actions</a> documentation to learn what a pure function is.</p>
+<h2 id="effects-must-call-actions-to-update-the-state">Effects must call actions to update the state</h2>
+<p>Performing side effects, such as API calls, can be done using <a href="../concepts/Effects.html">effects</a>. They can neither access the state nor update the state directly, but they can call actions at any time.<br>
+That&apos;s a fundamental decision in order to keep side effects as simple and stupid as possible. Actions should be single source of truth in terms of state updates.<br>
+If an effect needs information from the state, we can still pass it down via payload explicitely. Yet, it is highly discouraged to pass the whole state.</p>
 
                                 
                                 </section>
@@ -522,12 +491,12 @@ It creates a new store instance that provides both <a href="Provider.html">Provi
 
             
                 
-                <a href="../API.html" class="navigation navigation-prev " aria-label="Previous page: 4. API Reference">
+                <a href="How.html" class="navigation navigation-prev " aria-label="Previous page: 1.2. How It Works">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="Provider.html" class="navigation navigation-next " aria-label="Next page: 4.2. Provider">
+                <a href="Caveats.html" class="navigation navigation-next " aria-label="Next page: 1.4. Caveats">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -538,7 +507,7 @@ It creates a new store instance that provides both <a href="Provider.html">Provi
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.1. createStore","level":"1.5.1","depth":2,"next":{"title":"4.2. Provider","level":"1.5.2","depth":2,"path":"docs/api/Provider.md","ref":"docs/api/Provider.md","articles":[]},"previous":{"title":"4. API Reference","level":"1.5","depth":1,"path":"docs/API.md","ref":"docs/API.md","articles":[{"title":"4.1. createStore","level":"1.5.1","depth":2,"path":"docs/api/createStore.md","ref":"docs/api/createStore.md","articles":[]},{"title":"4.2. Provider","level":"1.5.2","depth":2,"path":"docs/api/Provider.md","ref":"docs/api/Provider.md","articles":[]},{"title":"4.3. Consumer","level":"1.5.3","depth":2,"path":"docs/api/Consumer.md","ref":"docs/api/Consumer.md","articles":[]},{"title":"4.4. Wrapper","level":"1.5.4","depth":2,"path":"docs/api/Wrapper.md","ref":"docs/api/Wrapper.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/alveron/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/alveron/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Alveron","language":"en","gitbook":"*","description":"Official documentation for Alveron"},"file":{"path":"docs/api/createStore.md","mtime":"2018-09-19T16:16:32.665Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2018-09-19T16:23:27.849Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.3. Design Principles","level":"1.2.3","depth":2,"next":{"title":"1.4. Caveats","level":"1.2.4","depth":2,"path":"docs/introduction/Caveats.md","ref":"docs/introduction/Caveats.md","articles":[]},"previous":{"title":"1.2. How It Works","level":"1.2.2","depth":2,"path":"docs/introduction/How.md","ref":"docs/introduction/How.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/alveron/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/alveron/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Alveron","language":"en","gitbook":"*","description":"Official documentation for Alveron"},"file":{"path":"docs/introduction/Design.md","mtime":"2018-09-19T16:11:24.755Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2018-09-19T16:23:27.849Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
