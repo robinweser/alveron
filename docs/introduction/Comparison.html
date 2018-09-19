@@ -424,11 +424,23 @@
                                 
                                 <h1 id="comparison">Comparison</h1>
 <p>This section should help to understand the differences to other (React based) state management libraries.</p>
-<h2 id="redux">Redux</h2>
+<h3 id="table-of-contents">Table of Contents</h3>
+<ul>
+<li><a href="#redux">Redux</a></li>
+<li><a href="#constate">Constate</a></li>
+</ul>
+<h2 id="redux"><a href="https://github.com/reduxjs/redux" _target="blank">Redux</a></h2>
 <blockquote>
-<p>Talking about Redux, we&apos;re actually refering to its React bindings (react-redux) as alveron is React-only anyways.</p>
+<p>Talking about Redux, we&apos;re actually refering to its React bindings (<a href="https://github.com/reduxjs/react-redux" _target="blank">react-redux</a>) as Alveron is React-only anyways.</p>
 </blockquote>
-<h2 id="constate">Constate</h2>
+<p>To be done.</p>
+<h2 id="constate"><a href="https://github.com/diegohaz/constate" _target="blank">Constate</a></h2>
+<p>Constate builds on-top of the very same API than Alveron does: React Context. Therefore it shares a lot of concepts and ideas.<br>
+Compared to Alveron, it has a bit more complicated API as it ships way more explicit props. With Alveron you only set the <a href="../concepts/Model.html">model</a>, <a href="../concepts/Actions.html">actions</a> and <a href="../concepts/Effects.html">effects</a> and handle all the rendering logic and lifecycle methods yourself.<br>
+With Constate on the other hand, you e.g. have APIs to directly handle state changes on component (un)mount and update. It also ships selectors out-of-the-box while with Alveron you&apos;d have to add that yourself.<br>
+In contrast to Constate, Alveron is always distinct. Equivocality can occur when multiple Container share the same context, but set different initialState values. In this case, Constate will only consider the initialState of the first Container.<br></p>
+<h4 id="summary">Summary</h4>
+<p>Alveron is less opinionated and more focused on the state management only while Constate gives you way more APIs to handle all kind of use cases ou-of-the-box.</p>
 
                                 
                                 </section>
@@ -472,7 +484,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.4. Comparison","level":"1.2.4","depth":2,"next":{"title":"1.5. Ecosystem","level":"1.2.5","depth":2,"path":"docs/introduction/Ecosystem.md","ref":"docs/introduction/Ecosystem.md","articles":[]},"previous":{"title":"1.3. Caveats","level":"1.2.3","depth":2,"path":"docs/introduction/Caveats.md","ref":"docs/introduction/Caveats.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/alveron/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/alveron/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Alveron","language":"en","gitbook":"*","description":"Official documentation for Alveron"},"file":{"path":"docs/introduction/Comparison.md","mtime":"2018-09-17T15:41:26.079Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2018-09-17T21:08:29.034Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.4. Comparison","level":"1.2.4","depth":2,"next":{"title":"1.5. Ecosystem","level":"1.2.5","depth":2,"path":"docs/introduction/Ecosystem.md","ref":"docs/introduction/Ecosystem.md","articles":[]},"previous":{"title":"1.3. Caveats","level":"1.2.3","depth":2,"path":"docs/introduction/Caveats.md","ref":"docs/introduction/Caveats.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/alveron/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/alveron/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Alveron","language":"en","gitbook":"*","description":"Official documentation for Alveron"},"file":{"path":"docs/introduction/Comparison.md","mtime":"2018-09-19T16:11:21.962Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2018-09-19T16:18:24.209Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

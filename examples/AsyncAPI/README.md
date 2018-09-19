@@ -4,7 +4,7 @@ This example uses the free [JSON Placeholder API](https://jsonplaceholder.typico
 
 As the API does not really update user data on *POST* and *DELETE*, we have to *fake* ids and user names.
 
-<img src="https://raw.githubusercontent.com/rofrischmann/alveron/master/docs/res/AsyncAPI.gif">
+<img style="border:1px solid black" src="https://raw.githubusercontent.com/rofrischmann/alveron/master/docs/res/AsyncAPI.gif">
 
 ## Installation
 
