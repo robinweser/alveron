@@ -46,7 +46,6 @@ export default function createStore(
         return map
       }, {})
 
-      const setState = this.setState.bind(this)
       const resolvedEffects = Object.keys(effects).reduce((map, name) => {
         map[name] = (...payload) => effects[name](resolvedActions, ...payload)
         return map
