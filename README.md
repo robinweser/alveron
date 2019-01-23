@@ -4,7 +4,7 @@
 
 Alveron is an [Elm](http://elm-lang.org)-inspired state management library for React support asynchronous effects by default.    
 It uses React's new context API and is super lightweight at **only 1kb gzipped**.    
-From version 3.0.0, it also provides a [useAlveron hook](docs/api/useAlveron.md).
+From version 3.0.0, it also provides a [useAlveron hook](https://alveron.js.org/docs/api/useAlveron.html).
 
 It can handle both **local** [component state](https://reactjs.org/docs/faq-state.html) as well as **global** state.
 
