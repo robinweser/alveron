@@ -38,6 +38,9 @@ npm i --save alveron
 * [Async API](./examples/AsyncAPI)
 
 ## The Gist
+
+> Want to use Alveron with hooks already? Check out [Using Hooks](https://alveron.js.org/docs/advanced/UsingHooks.html).
+
 ```javascript
 import React from 'react'
 import { createStore } from 'alveron'
