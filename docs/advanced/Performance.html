@@ -398,6 +398,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.5.5" data-path="../api/useAlveron.html">
+            
+                <a href="../api/useAlveron.html">
+            
+                    
+                    4.5. useAlveron
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -449,13 +462,14 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="performance">Performance</h1>
+<h2 id="shouldcomponentupdate">shouldComponentUpdate</h2>
 <p>By default, every <a href="../api/Consumer.html">Consumer</a> component in a given <a href="../api/Provider.html">Provider</a> scope will update if its state changes.</p>
 <p>That means, only the affected Consumer actually update, which is a neat advantage over e.g. <a href="redux.js.org">Redux</a>.<br>
 Yet, we still don&apos;t need to update every Consumer all the time e.g. if we only consume parts of the state. To achieve that, we can implement shouldComponentUpdate within our consuming React components.</p>
 <blockquote>
 <p><strong>Note</strong>: In general, there&apos;s no need for such low level optimisations, but sometimes it might help to improve performance e.g. for big lists.</p>
 </blockquote>
-<h2 id="example">Example</h2>
+<h4 id="example">Example</h4>
 <p>Consider the following example where a generic Input component uses the store to select the correct key.</p>
 <pre class="language-"><code class="lang-javascript"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">&apos;react&apos;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> createStore <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;react-woodworm&apos;</span>
@@ -541,6 +555,8 @@ Yet, we still don&apos;t need to update every Consumer all the time e.g. if we o
 <span class="token punctuation">)</span>
 </code></pre>
 <p>Now we will only rerender the input component that is actually updated.</p>
+<h2 id="batch-updates">Batch Updates</h2>
+<p>tbd.</p>
 <hr>
 <h3 id="related">Related</h3>
 <ul>
@@ -592,7 +608,7 @@ Yet, we still don&apos;t need to update every Consumer all the time e.g. if we o
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.1. Performance","level":"1.4.1","depth":2,"next":{"title":"3.2. Lifecycle Methods","level":"1.4.2","depth":2,"path":"docs/advanced/LifecycleMethods.md","ref":"docs/advanced/LifecycleMethods.md","articles":[]},"previous":{"title":"3. Advanced","level":"1.4","depth":1,"path":"docs/Advanced.md","ref":"docs/Advanced.md","articles":[{"title":"3.1. Performance","level":"1.4.1","depth":2,"path":"docs/advanced/Performance.md","ref":"docs/advanced/Performance.md","articles":[]},{"title":"3.2. Lifecycle Methods","level":"1.4.2","depth":2,"path":"docs/advanced/LifecycleMethods.md","ref":"docs/advanced/LifecycleMethods.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/alveron/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/alveron/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Alveron","language":"en","gitbook":"*","description":"Official documentation for Alveron"},"file":{"path":"docs/advanced/Performance.md","mtime":"2018-09-19T16:17:04.819Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2018-09-19T16:24:49.364Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.1. Performance","level":"1.4.1","depth":2,"next":{"title":"3.2. Lifecycle Methods","level":"1.4.2","depth":2,"path":"docs/advanced/LifecycleMethods.md","ref":"docs/advanced/LifecycleMethods.md","articles":[]},"previous":{"title":"3. Advanced","level":"1.4","depth":1,"path":"docs/Advanced.md","ref":"docs/Advanced.md","articles":[{"title":"3.1. Performance","level":"1.4.1","depth":2,"path":"docs/advanced/Performance.md","ref":"docs/advanced/Performance.md","articles":[]},{"title":"3.2. Lifecycle Methods","level":"1.4.2","depth":2,"path":"docs/advanced/LifecycleMethods.md","ref":"docs/advanced/LifecycleMethods.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/alveron/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/alveron/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Alveron","language":"en","gitbook":"*","description":"Official documentation for Alveron"},"file":{"path":"docs/advanced/Performance.md","mtime":"2019-01-23T08:14:33.457Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2019-01-23T12:13:06.249Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

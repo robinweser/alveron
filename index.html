@@ -396,6 +396,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.5.5" data-path="docs/api/useAlveron.html">
+            
+                <a href="docs/api/useAlveron.html">
+            
+                    
+                    4.5. useAlveron
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -450,7 +463,7 @@
 <blockquote>
 <p><strong>Disclaimer</strong>: Alveron was formerly published as <strong>react-woodworm</strong>. It was renamed in order to replace the previous <a href="https://github.com/rofrischmann/alveron-old" _target="blank">alveron</a> package. The old react-woodworm version 4.0 is now published as alveron version 2.0. Sorry for the inconvenience.</p>
 </blockquote>
-<p>Alveron is an <a href="http://elm-lang.org" _target="blank">Elm</a>-inspired state management library for React support asynchronous effects by default.<br>It uses React&apos;s new context API and is super lightweight at <strong>only 1kb gzipped</strong>.</p>
+<p>Alveron is an <a href="http://elm-lang.org" _target="blank">Elm</a>-inspired state management library for React support asynchronous effects by default.<br>It uses React&apos;s new context API and is super lightweight at <strong>only 1kb gzipped</strong>.<br>From version 3.0.0, it also provides a <a href="https://alveron.js.org/docs/api/useAlveron.html" _target="blank">useAlveron hook</a>.</p>
 <p>It can handle both <strong>local</strong> <a href="https://reactjs.org/docs/faq-state.html" _target="blank">component state</a> as well as <strong>global</strong> state.</p>
 <p><img alt="TravisCI" src="https://travis-ci.org/rofrischmann/alveron.svg?branch=master"> <a href="https://codeclimate.com/github/rofrischmann/alveron/coverage" _target="blank"><img alt="Test Coverage" src="https://codeclimate.com/github/rofrischmann/alveron/badges/coverage.svg"></a> <img alt="npm downloads" src="https://img.shields.io/npm/dm/alveron.svg"> <img alt="gzipped size" src="https://img.shields.io/bundlephobia/minzip/alveron.svg?colorB=4c1&amp;label=gzipped%20size"> <img alt="npm version" src="https://badge.fury.io/js/alveron.svg"></p>
 <h2 id="support-me">Support Me</h2>
@@ -482,6 +495,9 @@ yarn add alveron
 <li><a href="examples/AsyncAPI">Async API</a></li>
 </ul>
 <h2 id="the-gist">The Gist</h2>
+<blockquote>
+<p>Want to use Alveron with hooks already? Check out <a href="https://alveron.js.org/docs/advanced/UsingHooks.html" _target="blank">Using Hooks</a>.</p>
+</blockquote>
 <pre class="language-"><code class="lang-javascript"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">&apos;react&apos;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> createStore <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;alveron&apos;</span>
 
@@ -569,7 +585,7 @@ Created with &#x2665; by <a href="http://rofrischmann.de" _target="blank">@rofri
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Read Me","level":"1.1","depth":1,"next":{"title":"1. Introduction","level":"1.2","depth":1,"path":"docs/Introduction.md","ref":"docs/Introduction.md","articles":[{"title":"1.1. Motivation","level":"1.2.1","depth":2,"path":"docs/introduction/Motivation.md","ref":"docs/introduction/Motivation.md","articles":[]},{"title":"1.2. How It Works","level":"1.2.2","depth":2,"path":"docs/introduction/How.md","ref":"docs/introduction/How.md","articles":[]},{"title":"1.3. Design Principles","level":"1.2.3","depth":2,"path":"docs/introduction/Design.md","ref":"docs/introduction/Design.md","articles":[]},{"title":"1.4. Caveats","level":"1.2.4","depth":2,"path":"docs/introduction/Caveats.md","ref":"docs/introduction/Caveats.md","articles":[]},{"title":"1.5. Comparison","level":"1.2.5","depth":2,"path":"docs/introduction/Comparison.md","ref":"docs/introduction/Comparison.md","articles":[]},{"title":"1.6. Ecosystem","level":"1.2.6","depth":2,"path":"docs/introduction/Ecosystem.md","ref":"docs/introduction/Ecosystem.md","articles":[]},{"title":"1.7. Examples","level":"1.2.7","depth":2,"path":"docs/introduction/Examples.md","ref":"docs/introduction/Examples.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/alveron/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/alveron/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Alveron","language":"en","gitbook":"*","description":"Official documentation for Alveron"},"file":{"path":"README.md","mtime":"2018-09-19T16:12:04.270Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2018-09-19T16:24:49.364Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Read Me","level":"1.1","depth":1,"next":{"title":"1. Introduction","level":"1.2","depth":1,"path":"docs/Introduction.md","ref":"docs/Introduction.md","articles":[{"title":"1.1. Motivation","level":"1.2.1","depth":2,"path":"docs/introduction/Motivation.md","ref":"docs/introduction/Motivation.md","articles":[]},{"title":"1.2. How It Works","level":"1.2.2","depth":2,"path":"docs/introduction/How.md","ref":"docs/introduction/How.md","articles":[]},{"title":"1.3. Design Principles","level":"1.2.3","depth":2,"path":"docs/introduction/Design.md","ref":"docs/introduction/Design.md","articles":[]},{"title":"1.4. Caveats","level":"1.2.4","depth":2,"path":"docs/introduction/Caveats.md","ref":"docs/introduction/Caveats.md","articles":[]},{"title":"1.5. Comparison","level":"1.2.5","depth":2,"path":"docs/introduction/Comparison.md","ref":"docs/introduction/Comparison.md","articles":[]},{"title":"1.6. Ecosystem","level":"1.2.6","depth":2,"path":"docs/introduction/Ecosystem.md","ref":"docs/introduction/Ecosystem.md","articles":[]},{"title":"1.7. Examples","level":"1.2.7","depth":2,"path":"docs/introduction/Examples.md","ref":"docs/introduction/Examples.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/alveron/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/alveron/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Alveron","language":"en","gitbook":"*","description":"Official documentation for Alveron"},"file":{"path":"README.md","mtime":"2019-01-23T08:56:22.654Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2019-01-23T12:13:06.249Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
