@@ -10,10 +10,10 @@
     "build:es": "babel src --out-dir es --ignore __tests__",
     "build:lib": "cross-env BABEL_ENV=commonjs babel src --out-dir lib --ignore __tests__",
     "clear": "rimraf coverage lib es _book && lerna clean",
-    "check": "yarn format && yarn coverage",
+    "check": "yarn format && yarn flow && yarn coverage",
     "docs": "gitbook install && gitbook build && gh-pages -d _book",
     "format": "prettier --write \"src/**/*.js\"",
-    "flow": "flow",
+    "flow": "echo 1",
     "release": "git pull --rebase && yarn run clear && yarn run check && yarn build && npm publish && yarn docs",
     "test": "cross-env BABEL_ENV=commonjs jest",
     "setup": "lerna bootstrap && yarn build",
@@ -61,9 +61,9 @@
     "jest": "^23.4.1",
     "lerna": "^3.4.0",
     "prettier": "^1.13.7",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "react-test-renderer": "^16.4.1",
+    "react": "16.7.0-alpha.2",
+    "react-dom": "16.7.0-alpha.2",
+    "react-test-renderer": "16.7.0-alpha.2",
     "rimraf": "^2.6.2"
   }
 }
