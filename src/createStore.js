@@ -3,34 +3,22 @@ import React, { createContext, Component } from 'react'
 
 import validateStore from './validateStore'
 
-type InterfaceShape = {
-  Consumer: any,
-  Provider: any,
-}
-
-type OptionsType = {
-  model?: any,
-  actions?: Object,
-  effects?: Object,
-}
+import type { OptionsShape, InterfaceShape, RenderPropsShape } from '../types'
 
 export default function createStore(
   options: OptionsShape = {}
-): InterfaceShape {
+): RenderPropsShape {
   const Store = createContext()
 
   const actions = options.actions || {}
   const effects = options.effects || {}
 
   class Provider extends Component {
-    state: {
-      state: any,
-      actions: Object,
-      effects: Object,
-    }
+    state: InterfaceShape
 
     props: {
       initialState: any,
+      children: any,
     }
 
     constructor(props, context) {
@@ -48,7 +36,8 @@ export default function createStore(
 
       const setState = this.setState.bind(this)
       const resolvedEffects = Object.keys(effects).reduce((map, name) => {
-        map[name] = (...payload) => effects[name](resolvedActions, ...payload)
+        map[name] = (...payload) =>
+          effects[name](resolvedActions, resolvedEffects, ...payload)
         return map
       }, {})
 

@@ -1,5 +1,6 @@
 # Performance
 
+## shouldComponentUpdate
 By default, every [Consumer](../api/Consumer.md) component in a given [Provider](../api/Provider.md) scope will update if its state changes.
 
 That means, only the affected Consumer actually update, which is a neat advantage over e.g. [Redux](redux.js.org).<br>
@@ -8,7 +9,7 @@ Yet, we still don't need to update every Consumer all the time e.g. if we only c
 > **Note**: In general, there's no need for such low level optimisations, but sometimes it might help to improve performance e.g. for big lists.
 
 
-## Example
+#### Example
 Consider the following example where a generic Input component uses the store to select the correct key.
 ```javascript
 import React from 'react'
@@ -99,6 +100,9 @@ const UserInfo = () => (
 ```
 
 Now we will only rerender the input component that is actually updated.
+
+## Batch Updates
+tbd.
 
 ---
 

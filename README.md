@@ -2,7 +2,9 @@
 
 > **Disclaimer**: Alveron was formerly published as **react-woodworm**. It was renamed in order to replace the previous [alveron](https://github.com/rofrischmann/alveron-old) package. The old react-woodworm version 4.0 is now published as alveron version 2.0. Sorry for the inconvenience.
 
-Alveron is an [Elm](http://elm-lang.org)-inspired state management library for React support asynchronous effects by default.<br>It uses React's new context API and is super lightweight at **only 1kb gzipped**.
+Alveron is an [Elm](http://elm-lang.org)-inspired state management library for React support asynchronous effects by default.    
+It uses React's new context API and is super lightweight at **only 1kb gzipped**.    
+From version 3.0.0, it also provides a [useAlveron hook](docs/api/useAlveron.md).
 
 It can handle both **local** [component state](https://reactjs.org/docs/faq-state.html) as well as **global** state.
 

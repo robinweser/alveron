@@ -1,6 +1,5 @@
 # createStore
 
-The only public API as of today.<br>
 It creates a new store instance that provides both [Provider](Provider.md) and [Consumer](Consumer.md) components as well as a shorthand [Wrapper](Wrapper.md) component to interact with the store.
 
 It accepts a single options object, that allows the following options.

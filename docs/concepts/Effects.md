@@ -1,10 +1,10 @@
 # Effects
 
 Apart from [actions](Actions.md), there is another way to update the state: (side) effects.<br>
-Effects do not actually update the state directly, but rather call an equivalent action once resolved.
+Effects do not actually update the state directly, but rather call an equivalent action or other effects once resolved.
 
 ```javascript
-const Effect: void = (actions: Object, ...payload) => {}
+const Effect: void = (actions: Object, effects: Object,...payload) => {}
 ```
 
 They're used for asynchronous operations such as API requests or delayed calls.<br>
