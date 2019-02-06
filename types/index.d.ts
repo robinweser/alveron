@@ -37,3 +37,6 @@ export interface RenderPropsShape {
   Provider: any,
   Wrapper: any,
 }
+
+declare const createStore: (options: OptionsShape) => RenderPropsShape
+declare const useAlveron: (options: OptionsShape) => InterfaceShape
