@@ -1,6 +1,6 @@
 {
   "name": "alveron",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Elm-inspired state management for React in 1kb",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -9,7 +9,7 @@
     "build": "yarn build:es && yarn build:lib",
     "build:es": "babel src --out-dir es --ignore __tests__",
     "build:lib": "cross-env BABEL_ENV=commonjs babel src --out-dir lib --ignore __tests__",
-    "clear": "rimraf coverage lib es _book && lerna clean",
+    "clear": "rimraf coverage lib es _book && lerna clean --yes",
     "check": "yarn format && yarn flow && yarn coverage",
     "docs": "gitbook install && gitbook build && gh-pages -d _book",
     "format": "prettier --write \"src/**/*.js\"",
@@ -67,5 +67,8 @@
     "react-dom": "16.7.0-alpha.2",
     "react-test-renderer": "16.7.0-alpha.2",
     "rimraf": "^2.6.2"
+  },
+  "dependencies": {
+    "gitbook-plugin-github": "^2.0.0"
   }
 }
