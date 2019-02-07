@@ -5,6 +5,14 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
+  "types": "types/index.d.ts",
+  "files": [
+    "LICENSE",
+    "README.md",
+    "lib/**",
+    "es/**",
+    "types/index.d.ts"
+  ],
   "scripts": {
     "build": "yarn build:es && yarn build:lib",
     "build:es": "babel src --out-dir es --ignore __tests__",
@@ -21,14 +29,6 @@
     "coverage": "yarn test -- --coverage",
     "watch": "yarn test -- --watch"
   },
-  "files": [
-    "LICENSE",
-    "README.md",
-    "lib/**",
-    "es/**",
-    "types/index.d.ts"
-  ],
-  "types": "types/index.d.ts",
   "repository": "https://github.com/rofrischmann/alveron/",
   "keywords": [
     "react",
@@ -63,12 +63,9 @@
     "jest": "^23.4.1",
     "lerna": "^3.4.0",
     "prettier": "^1.13.7",
-    "react": "16.7.0-alpha.2",
-    "react-dom": "16.7.0-alpha.2",
-    "react-test-renderer": "16.7.0-alpha.2",
+    "react": "16.8.0",
+    "react-dom": "16.8.0",
+    "react-test-renderer": "16.8.0",
     "rimraf": "^2.6.2"
-  },
-  "dependencies": {
-    "gitbook-plugin-github": "^2.0.0"
   }
 }
