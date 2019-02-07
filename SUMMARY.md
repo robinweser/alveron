@@ -17,6 +17,7 @@
 * [3. Advanced](docs/Advanced.md)
   * [3.1. Performance](docs/advanced/Performance.md)
   * [3.2. Lifecycle Methods](docs/advanced/LifecycleMethods.md)
+  * [3.3. Using Hooks](docs/advanced/UsingHooks.md)
 * [4. API Reference](docs/API.md)
   * [4.1. createStore](docs/api/createStore.md)
   * [4.2. Provider](docs/api/Provider.md)
