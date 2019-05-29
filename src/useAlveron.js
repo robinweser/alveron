@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 
 import type { OptionsShape, InterfaceShape } from '../types'
 
-function useAlveron({
+export default function useAlveron({
   model,
   actions = {},
   effects = {},
