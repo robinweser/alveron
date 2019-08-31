@@ -1,6 +1,6 @@
 {
   "name": "alveron",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Elm-inspired state management for React in 1kb",
   "main": "lib/index.js",
   "module": "es/index.js",
