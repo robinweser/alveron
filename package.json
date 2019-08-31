@@ -1,6 +1,6 @@
 {
   "name": "alveron",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Elm-inspired state management for React in 1kb",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -58,7 +58,7 @@
     "gitbook-plugin-advanced-emoji": "^0.2.2",
     "gitbook-plugin-anker-enable": "^0.0.4",
     "gitbook-plugin-edit-link": "^2.0.2",
-    "gitbook-plugin-github": "^3.0.0",
+    "gitbook-plugin-github": "^2.0.0",
     "gitbook-plugin-prism": "^2.4.0",
     "jest": "^23.4.1",
     "lerna": "^3.4.0",
@@ -67,8 +67,5 @@
     "react-dom": "16.8.0",
     "react-test-renderer": "16.8.0",
     "rimraf": "^2.6.2"
-  },
-  "dependencies": {
-    "gitbook-plugin-github": "^2.0.0"
   }
 }
