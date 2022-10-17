@@ -1,0 +1,23 @@
+{
+  "Intro": {
+    "Overview": "intro/overview",
+    "Getting Started": "intro/getting-started",
+    "Motivation": "intro/motivation",
+    "Theoretical Background": "intro/theoretical-background",
+    "Design Principles": "intro/design-principles",
+    "Caveats": "intro/caveats"
+  },
+  "Concepts": {
+    "Model": "concepts/model",
+    "Action": "concepts/action",
+    "Effect": "concepts/effect",
+    "Middlware": "concepts/middleware"
+  },
+  "API Reference": {
+    "useStore": "api/useStore"
+  },
+  "Extra": {
+    "Examples": "extra/examples",
+    "Changelog": "https://github.com/robinweser/alveron/releases"
+  }
+}

@@ -2,7 +2,6 @@
 ._*
 .DS_Store
 Thumbs.db
-.idea
 
 # Files that might appear on external disks
 .Spotlight-V100
@@ -16,18 +15,13 @@ Thumbs.db
 *.orig
 *.pyc
 *.rej
+*.vsix
+
 *.sass-cache
 *.sw?
 *.vi
 
-*.js.map
-**/node_modules/
-**/.next
-npm-debug.log
+node_modules
 lib
-es
-.vscode
+es 
 coverage
-_book
-
-\.history/

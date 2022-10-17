@@ -1,71 +1,16 @@
 {
   "name": "alveron",
-  "version": "3.0.2",
-  "description": "Elm-inspired state management for React in 1kb",
-  "main": "lib/index.js",
-  "module": "es/index.js",
-  "jsnext:main": "es/index.js",
-  "types": "types/index.d.ts",
-  "files": [
-    "LICENSE",
-    "README.md",
-    "lib/**",
-    "es/**",
-    "types/index.d.ts"
-  ],
+  "private": true,
   "scripts": {
-    "build": "yarn build:es && yarn build:lib",
-    "build:es": "babel src --out-dir es --ignore __tests__",
-    "build:lib": "cross-env BABEL_ENV=commonjs babel src --out-dir lib --ignore __tests__",
-    "clear": "rimraf coverage lib es _book && lerna clean --yes",
-    "check": "yarn format && yarn flow && yarn coverage",
-    "docs": "gitbook install && gitbook build && gh-pages -d _book",
-    "format": "prettier --write \"src/**/*.js\"",
-    "flow": "echo 1",
-    "release": "git pull --rebase && yarn run clear && yarn run check && yarn build && npm publish && yarn docs",
-    "test": "cross-env BABEL_ENV=commonjs jest",
-    "setup": "lerna bootstrap && yarn build",
-    "snapshots": "jest -u",
-    "coverage": "yarn test -- --coverage",
-    "watch": "yarn test -- --watch"
+    "build": "pnpm turbo run build"
   },
-  "repository": "https://github.com/rofrischmann/alveron/",
-  "keywords": [
-    "react",
-    "context",
-    "state",
-    "management",
-    "state-management",
-    "store",
-    "redux"
+  "workspaces": [
+    "packages/**",
+    "website"
   ],
-  "author": "Robin Frischmann",
-  "license": "MIT",
-  "peerDependencies": {
-    "react": "^16.3.0"
-  },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-jest": "^23.4.0",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "codeclimate-test-reporter": "^0.5.0",
-    "cross-env": "^5.2.0",
-    "flow-bin": "^0.76.0",
-    "gh-pages": "^2.0.0",
-    "gitbook-cli": "^2.3.2",
-    "gitbook-plugin-advanced-emoji": "^0.2.2",
-    "gitbook-plugin-anker-enable": "^0.0.4",
-    "gitbook-plugin-edit-link": "^2.0.2",
-    "gitbook-plugin-github": "^2.0.0",
-    "gitbook-plugin-prism": "^2.4.0",
-    "jest": "^23.4.1",
-    "lerna": "^3.4.0",
-    "prettier": "^1.13.7",
-    "react": "16.8.0",
-    "react-dom": "16.8.0",
-    "react-test-renderer": "16.8.0",
-    "rimraf": "^2.6.2"
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "turbo": "^1.5.6"
   }
 }
