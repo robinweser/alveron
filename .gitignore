@@ -21,6 +21,7 @@ Thumbs.db
 *.sw?
 *.vi
 
+.next
 node_modules
 lib
 es 
