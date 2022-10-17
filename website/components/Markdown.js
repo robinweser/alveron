@@ -273,7 +273,7 @@ export function td({ children }) {
         lineHeight: 1.4,
         borderTopWidth: 1,
         borderTopStyle: 'solid',
-        borderTopColor: 'separator',
+        borderTopColor: 'rgb(200, 200, 200)',
       }}>
       {children}
     </Box>
@@ -295,7 +295,7 @@ export function th({ children }) {
         borderRightWidth: 0,
         borderLeftWidth: 0,
         borderStyle: 'solid',
-        borderColor: 'separator',
+        borderColor: 'rgb(200, 200, 200)',
       }}>
       {children}
     </Box>

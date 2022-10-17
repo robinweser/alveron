@@ -8,6 +8,7 @@ import Layout from '../components/Layout'
 
 import * as components from '../components/Markdown'
 import Counter from '../examples/Counter'
+import ContactForm from '../examples/ContactForm'
 
 const year = new Date().getFullYear()
 
@@ -15,7 +16,15 @@ export default function Page({ id, content, headings, path }) {
   return (
     <>
       <Layout headings={headings}>
-        <MDXRemote {...content} components={components} />
+        <MDXRemote
+          {...content}
+          components={{
+            ...components,
+            Counter,
+            ContactForm,
+            Box,
+          }}
+        />
       </Layout>
       <Box
         paddingTop={20}

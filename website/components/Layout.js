@@ -48,7 +48,7 @@ function NavItem({ href, children }) {
               strokeWidth: '2px',
               display: 'inline-block',
             }}>
-            <path d="M22 11L10.5 22.5M10.44 11H22v11.56" fill="none"></path>
+            <path d="M22 11L10.5 22.5M10.44 11H22v11.56" fill="none" />
           </Box>
         )}
       </Box>
@@ -122,18 +122,21 @@ function GithubIcon(props) {
 }
 
 export default function Layout({ children, headings }) {
-  const showSubNavigation = headings.length > 2
+  const showSubNavigation = headings.length >= 2
 
   return (
     <Box maxWidth={1400} margin="0 auto">
       <Grid columns={['250px 1fr 250px']} gap={14}>
         <Box
           as="nav"
+          minHeight="100vh"
           height="100vh"
           padding={4}
+          paddingLeft={0}
           paddingRight={8}
           space={6}
           extend={{
+            overflowY: 'scroll',
             borderRight: '1px solid rgb(240, 240, 240)',
             position: 'sticky',
             top: 0,
@@ -167,6 +170,7 @@ export default function Layout({ children, headings }) {
           paddingTop={12}
           paddingLeft={0}
           extend={{
+            overflowY: 'scroll',
             position: 'sticky',
             top: 0,
           }}>

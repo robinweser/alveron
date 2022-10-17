@@ -16,8 +16,12 @@
   "API Reference": {
     "useStore": "api/useStore"
   },
+  "Examples": {
+    "Counter": "examples/counter",
+    "Contact Form": "examples/contact-form"
+  },
   "Extra": {
-    "Examples": "extra/examples",
-    "Changelog": "https://github.com/robinweser/alveron/releases"
+    "Changelog": "https://github.com/robinweser/alveron/releases",
+    "Support": "https://github.com/robinweser/alveron/discussions"
   }
 }

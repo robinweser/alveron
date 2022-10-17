@@ -20,7 +20,7 @@ export default function useStore({
           return arrayReduce(
             middleware,
             (newState, middleware) =>
-              middleware(newState, { name, payload, prevState }),
+              middleware(newState, { action: name, payload, prevState }),
             newState
           )
         }),

@@ -1,47 +1,10 @@
-import * as React from 'react'
+import React, { useState } from 'react'
 import { useStore } from 'alveron'
 
 import { Box } from 'kilvin'
 
-function Button({ action, children }) {
-  return (
-    <Box
-      as="button"
-      onClick={action}
-      padding={4}
-      minWidth={70}
-      extend={{
-        fontSize: 16,
-        borderRadius: 7,
-        backgroundColor: 'blue',
-        color: 'white',
-        appearance: 'none',
-        cursor: 'pointer',
-        border: 0,
-      }}>
-      {children}
-    </Box>
-  )
-}
-
-function Input({ value, onChange }) {
-  return (
-    <Box
-      as="input"
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
-      padding={4}
-      minWidth={50}
-      extend={{
-        fontSize: 16,
-        borderRadius: 7,
-        appearance: 'none',
-        cursor: 'pointer',
-        border: '1px solid rgb(180, 180, 180)',
-      }}
-    />
-  )
-}
+import Button from '../components/Button'
+import Input from '../components/Input'
 
 function getStore() {
   const model = 0
@@ -67,12 +30,35 @@ function getStore() {
   }
 }
 
+function useTimeTravellingDebugger() {
+  const [stack, setStack] = useState([])
+
+  function middleware(state, context) {
+    setStack([
+      ...stack,
+      {
+        newState: state,
+        ...context,
+      },
+    ])
+
+    return state
+  }
+
+  return {
+    middleware,
+    stack,
+  }
+}
+const store = getStore()
+
 export default function Counter() {
-  const { state, actions, effects } = useStore(getStore())
-  const [delay, setDelay] = React.useState(500)
+  const { state, actions, effects } = useStore(store)
+
+  const [delay, setDelay] = useState(500)
 
   return (
-    <Box alignItems="center" padding={8} space={8}>
+    <Box space={8}>
       <Box extend={{ fontSize: 40, fontWeight: 500 }}>{state}</Box>
       <Box direction="row" space={8}>
         <Button action={() => actions.decrementBy(2)}>-2</Button>

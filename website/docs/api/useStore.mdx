@@ -23,25 +23,32 @@ import { useStore } from 'alveron'
 
 function getStore() {
   const model = 0
+
   const actions = {
     increment: (state) => state + 1,
     decrement: (state) => state - 1,
   }
 
+  const effects = {
+    incrementWithDelay: (actions) => setTimeout(actions.increment, 1000),
+  }
+
   return {
     model,
     actions,
+    effects,
   }
 }
 
 function Counter() {
-  const { state, actions } = useStore(getStore())
+  const { state, actions, effects } = useStore(getStore())
 
   return (
     <div>
-      <h1>{state}</h1>
+      <div>{state}</div>
       <button onClick={increment}>+</button>
       <button onClick={decrement}>-</button>
+      <button onClick={effects.incrementWithDelay}>+ in 1s</button>
     </div>
   )
 }
