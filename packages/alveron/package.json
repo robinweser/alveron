@@ -1,7 +1,7 @@
 {
   "name": "alveron",
   "version": "5.0.0",
-  "description": "Elm-inspired state management for React in 1kb",
+  "description": "Elm-inspired state management for React",
   "author": "Robin Weser <contact@weser.io>",
   "license": "MIT",
   "homepage": "https://alveron.js.org",
