@@ -1,10 +1,10 @@
 type Action = (state: any, ...payload: Array<any>) => any
 type ActionMap = {
-  [actionName: string]: Action,
+  [actionName: string]: Action
 }
 type ResolvedAction = (...payload: Array<any>) => void
 type ResolvedActionMap = {
-  [actionName: string]: ResolvedAction,
+  [actionName: string]: ResolvedAction
 }
 
 type Effect = (
@@ -13,30 +13,23 @@ type Effect = (
   ...payload: Array<any>
 ) => void
 type EffectMap = {
-  [effectName: string]: Effect,
+  [effectName: string]: Effect
 }
 type ResolvedEffect = (...payload: Array<any>) => void
 type ResolvedEffectMap = {
-  [effectName: string]: ResolvedEffect,
+  [effectName: string]: ResolvedEffect
 }
 
 export interface OptionsShape {
-  model?: any,
-  actions?: ActionMap,
-  effects?: EffectMap,
+  model?: any
+  actions?: ActionMap
+  effects?: EffectMap
 }
 
 export interface InterfaceShape {
-  state: any,
-  actions: ResolvedActionMap,
-  effects: ResolvedEffectMap,
+  state: any
+  actions: ResolvedActionMap
+  effects: ResolvedEffectMap
 }
 
-export interface RenderPropsShape {
-  Consumer: any,
-  Provider: any,
-  Wrapper: any,
-}
-
-declare const createStore: (options: OptionsShape) => RenderPropsShape
-declare const useAlveron: (options: OptionsShape) => InterfaceShape
+declare const useStore: (options: OptionsShape) => InterfaceShape
