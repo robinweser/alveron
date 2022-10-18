@@ -1,0 +1,39 @@
+# Counter
+
+> The source code for all examples can be found on [Github](https://github.com/robinweser/alveron/tree/master/website/examples/).
+
+You don't write a state management library without providing a counter example.
+
+## Coverage
+
+- Model
+- Actions
+- Actions with Payload
+- Effects
+- Effects with Payload
+
+<Box
+  padding={8}
+  marginTop={8}
+  marginBottom={-3}
+  extend={{ border: '1px solid rgb(220, 220, 220)' }}>
+  <Counter />
+</Box>
+
+```js
+const model = 0
+
+const actions = {
+  reset: () => model,
+  increment: (state) => state + 1,
+  decrement: (state) => state - 1,
+  incrementBy: (state, increment) => state + increment,
+  decrementBy: (state, decrement) => state - decrement,
+}
+
+const effects = {
+  incrementIn: (actions, effects, delay) =>
+    setTimeout(actions.increment, delay),
+  incrementIn2Seconds: (actions, effects) => effects.incrementIn(2000),
+}
+```

@@ -1,0 +1,72 @@
+# Contact Form
+
+> The source code for all examples can be found on [Github](https://github.com/robinweser/alveron/tree/master/website/examples/).
+
+This example is closer to real-world usage and shows how effects can be used to incorporate asynchronous behaviour such as data fetching and API calls.
+
+## Coverage
+
+- Model
+- Actions
+- Actions with Payload
+- Effects
+- Effects with Payload
+
+<Box
+  padding={8}
+  marginTop={8}
+  marginBottom={-3}
+  extend={{ border: '1px solid rgb(220, 220, 220)' }}>
+  <ContactForm />
+</Box>
+
+```js
+const model = {
+  loading: false,
+  error: false,
+  firstName: '',
+  lastName: '',
+  email: '',
+}
+
+const actions = {
+  reset: () => model,
+  setLoading: (state, loading) => ({
+    ...state,
+    loading,
+  }),
+  setError: (state, error) => ({
+    ...state,
+    error,
+  }),
+  setFirstName: (state, firstName) => ({
+    ...state,
+    firstName,
+  }),
+  setLastName: (state, lastName) => ({
+    ...state,
+    lastName,
+  }),
+  setEmail: (state, email) => ({
+    ...state,
+    email,
+  }),
+}
+
+const effects = {
+  submitForm: (actions, effects, data) => {
+    actions.setLoading(true)
+
+    setTimeout(() => {
+      if (data.firstName && data.lastName && data.email) {
+        alert('Success!')
+        actions.reset()
+      } else {
+        actions.setError('Data missing!')
+      }
+
+      actions.setLoading(false)
+    }, 2000)
+  },
+}
+```
