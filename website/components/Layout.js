@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Box, Grid } from 'kilvin'
@@ -77,6 +77,8 @@ function renderNavigation(items) {
 }
 
 function renderItem(name, items) {
+  const [expanded, setExpanded] = useState(true)
+
   if (typeof items === 'string') {
     return <NavItem href={items}>{name}</NavItem>
   }
@@ -154,7 +156,7 @@ export default function Layout({ children, headings }) {
               rel="noopener noreferrer"
               target="_blank"
               href="https://github.com/robinweser/alveron">
-              <GithubIcon width={40} />
+              <GithubIcon width={34} />
             </Box>
           </Box>
           {renderNavigation(toc)}

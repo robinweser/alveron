@@ -35,7 +35,7 @@ function getMarginBottom(depth) {
 }
 
 const headingSizes = {
-  1: 46,
+  1: 44,
   2: 32,
   3: 28,
   4: 22,
