@@ -1,8 +1,8 @@
 import { useContext } from 'react'
-import PropTypes from 'prop-types'
-
-import { RendererProvider, RendererContext } from 'react-fela'
+import { RendererProvider, RendererContext, ThemeProvider } from 'react-fela'
 import getFelaRenderer from './getFelaRenderer'
+
+import theme from '../theme'
 
 const clientRenderer = getFelaRenderer()
 
@@ -13,5 +13,9 @@ export default function FelaProvider({ renderer = clientRenderer, children }) {
     return children
   }
 
-  return <RendererProvider renderer={renderer}>{children}</RendererProvider>
+  return (
+    <RendererProvider renderer={renderer}>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </RendererProvider>
+  )
 }

@@ -16,10 +16,10 @@
     "**/*.sass-cache": true,
     "**/*.sw?": true,
     "**/*.vi": true,
+    "**/.next": true,
     "**/node_modules": true,
     "**/lib": true,
     "**/es ": true,
-    "**/coverage": true,
-    "**/.next": true
+    "**/coverage": true
   }
 }

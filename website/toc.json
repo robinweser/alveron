@@ -18,6 +18,7 @@
   },
   "Examples": {
     "Counter": "examples/counter",
+    "Todo List": "examples/todo-list",
     "Contact Form": "examples/contact-form"
   },
   "Extra": {

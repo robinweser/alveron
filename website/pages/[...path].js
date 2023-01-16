@@ -1,45 +1,43 @@
 import * as React from 'react'
+import { join, dirname } from 'path'
+import { getAllPages, getPageData } from 'next-documentation-helpers'
 import { MDXRemote } from 'next-mdx-remote'
 import { Box } from 'kilvin'
 
-import getAllPages from '../api/getAllPages'
-import getPageDetails from '../api/getPageDetails'
+import Template from '../components/Template'
 import Layout from '../components/Layout'
 
-import * as components from '../components/Markdown'
+import * as components from '../components/markdown/Markdown'
+
 import Counter from '../examples/Counter'
 import ContactForm from '../examples/ContactForm'
+import TodoList, from '../examples/TodoList'
 
-const year = new Date().getFullYear()
+import config from '../config'
 
 export default function Page({ id, content, headings, path }) {
   return (
-    <>
+    <Template>
       <Layout headings={headings}>
         <MDXRemote
           {...content}
           components={{
             ...components,
+            Box,
             Counter,
             ContactForm,
-            Box,
+            TodoList,
           }}
         />
       </Layout>
-      <Box
-        paddingTop={20}
-        paddingBottom={20}
-        extend={{ backgroundColor: 'rgb(240, 240, 240)' }}>
-        <Box maxWidth={1300} width="100%" margin="0 auto">
-          Crafted with ♡ by Robin Weser
-        </Box>
-      </Box>
-    </>
+    </Template>
   )
 }
 
+const ROOT_PATH = join(process.cwd(), config.pageRoot)
+
 export async function getStaticPaths() {
-  const pages = await getAllPages()
+  const pages = await getAllPages(ROOT_PATH)
 
   return {
     fallback: false,
@@ -54,7 +52,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const id = params.path.join('/')
 
-  const { content, headings } = await getPageDetails(id)
+  const { content, headings } = await getPageData(ROOT_PATH, id)
 
   if (!content) {
     return {

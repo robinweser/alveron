@@ -3,8 +3,8 @@ import { useStore } from 'alveron'
 
 import { Box } from 'kilvin'
 
-import Button from '../components/Button'
-import Input from '../components/Input'
+import Button from '../components/examples/Button'
+import Input from '../components/examples/Input'
 
 function getStore() {
   const model = {

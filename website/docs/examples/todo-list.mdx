@@ -1,0 +1,61 @@
+# Todo List
+
+> The source code for all examples can be found on [Github](https://github.com/robinweser/alveron/tree/master/website/examples/).
+
+Another classic example.
+
+## Coverage
+
+- Model
+- Actions
+- Actions with Payload
+
+<Box
+  padding={8}
+  marginTop={8}
+  marginBottom={-3}
+  extend={{ border: '1px solid rgb(220, 220, 220)' }}>
+  <TodoList />
+</Box>
+
+```js
+const model = {
+  input: '',
+  todos: [],
+}
+
+const actions = {
+  setInput: (state, input) => ({
+    ...state,
+    input,
+  }),
+  addTodo: (state, text) => ({
+    ...state,
+    input: '',
+    todos: [
+      ...state.todos,
+      {
+        text,
+        checked: false,
+      },
+    ],
+  }),
+  toggleTodo: (state, id) => ({
+    ...state,
+    todos: state.todos.map((todo, index) => {
+      if (index === id) {
+        return {
+          ...todo,
+          checked: !todo.checked,
+        }
+      }
+
+      return todo
+    }),
+  }),
+  removeTodo: (state, id) => ({
+    ...state,
+    todos: [...state.todos.slice(0, id), ...state.todos.slice(id + 1)],
+  }),
+}
+```

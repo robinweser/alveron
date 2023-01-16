@@ -3,12 +3,14 @@ import { ThemeProvider } from 'react-fela'
 
 import FelaProvider from '../styling/FelaProvider'
 
-import theme from '../styling/theme'
+import { ConfigProvider } from '../components/Config'
+
+import config from '../config'
 
 export default function App({ Component, pageProps, renderer }) {
   return (
-    <FelaProvider renderer={renderer}>
-      <ThemeProvider theme={theme}>
+    <ConfigProvider config={config}>
+      <FelaProvider renderer={renderer}>
         <Head>
           <meta
             name="viewport"
@@ -16,7 +18,7 @@ export default function App({ Component, pageProps, renderer }) {
           />
         </Head>
         <Component {...pageProps} />
-      </ThemeProvider>
-    </FelaProvider>
+      </FelaProvider>
+    </ConfigProvider>
   )
 }

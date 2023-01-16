@@ -3,121 +3,15 @@ import { Box } from 'kilvin'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useFela } from 'react-fela'
+import { getHeadingId } from 'next-documentation-helpers'
 
-import CodeBlock from './CodeBlock'
+import config from '../../config'
 
-import getHeadingId from '../utils/getHeadingId'
+import Code from './Code'
+import Heading from './Heading'
 
-function getMarginTop(depth) {
-  const baseMargin = depth === 1 ? 0 : 6
+import useTheme from '../../styling/useTheme'
 
-  switch (depth) {
-    case 1:
-      return baseMargin
-    case 2:
-      return baseMargin + 6
-    case 3:
-      return baseMargin + 3
-    case 4:
-      return baseMargin + 3
-    default:
-      return baseMargin
-  }
-}
-
-function getMarginBottom(depth) {
-  switch (depth) {
-    case 1:
-      return 4
-    default:
-      return 1
-  }
-}
-
-const headingSizes = {
-  1: 44,
-  2: 32,
-  3: 28,
-  4: 22,
-  5: 18,
-  6: 16,
-}
-
-function Heading({ depth, children }) {
-  const { theme } = useFela()
-
-  const id = getHeadingId(children)
-
-  const marginTop = getMarginTop(depth)
-  const marginBottom = getMarginBottom(depth)
-  const fontSize = headingSizes[depth]
-  const lineHeight = depth === 2 ? 1.6 : 1.2
-
-  const isAnchor = depth > 1 && id
-
-  return (
-    <Box
-      id={isAnchor ? id : undefined}
-      as={'h' + depth}
-      onClick={() => {
-        if (isAnchor) {
-          window.location.hash = id
-        }
-      }}
-      display="block"
-      marginTop={marginTop}
-      marginBottom={marginBottom}
-      extend={{
-        fontSize,
-        cursor: isAnchor ? 'pointer' : 'inherit',
-        lineHeight,
-        overflow: 'hidden',
-        whiteSpace: 'wrap',
-        textOverflow: 'ellipsis',
-        '> a': {
-          color: 'inherit',
-        },
-        medium: {
-          scrollMarginTop: 6 * theme.baselineGrid,
-        },
-      }}>
-      {children}
-    </Box>
-  )
-}
-
-export function a({ href, children }) {
-  const router = useRouter()
-
-  const isExtern = href.indexOf('http') !== -1
-  const isAnchor = href.indexOf('#') === 0
-  const resolvedHref = isExtern
-    ? href
-    : isAnchor
-    ? router.pathname + href
-    : '/' + href
-
-  return (
-    <Link href={resolvedHref} passHref>
-      <Box
-        as="a"
-        display="inline"
-        href={resolvedHref}
-        extend={{
-          color: 'rgb(54, 122, 180)',
-          ':hover': {
-            color: 'rgb(35, 88, 134)',
-          },
-        }}>
-        {children}
-      </Box>
-    </Link>
-  )
-}
-
-export function pre({ children }) {
-  return children
-}
 export function h1({ children }) {
   return <Heading depth={1}>{children}</Heading>
 }
@@ -133,100 +27,8 @@ export function h4({ children }) {
 export function h5({ children }) {
   return <Heading depth={5}>{children}</Heading>
 }
-export function strong({ children }) {
-  return (
-    <Box as="strong" extend={{ display: 'inline', fontWeight: 600 }}>
-      {children}
-    </Box>
-  )
-}
-
-export function ul({ children }) {
-  return (
-    <Box
-      as="ul"
-      space={1}
-      paddingLeft={4.5}
-      extend={{
-        lineHeight: 1.5,
-        fontFamily: 'inherit',
-        // color: theme.colors.foreground,
-      }}>
-      {children}
-    </Box>
-  )
-}
-export function ol({ children }) {
-  return (
-    <Box
-      as="ol"
-      space={1}
-      marginTop={2.5}
-      marginBottom={2.5}
-      paddingLeft={6}
-      extend={{
-        lineHeight: 1.5,
-        fontFamily: 'inherit',
-        // color: theme.colors.foreground,
-      }}>
-      {children}
-    </Box>
-  )
-}
-
-export function blockquote({ children }) {
-  return (
-    <Box
-      marginBottom={2}
-      padding={4}
-      paddingLeft={5}
-      paddingRight={5}
-      extend={{
-        backgroundColor: 'rgb(222, 240, 248)',
-        borderRadius: 4,
-        '& p': {
-          marginBottom: 0,
-          marginTop: 0,
-        },
-        '& pre': {
-          // backgroundColor: theme.colors.cyanCode,
-        },
-      }}>
-      {children}
-    </Box>
-  )
-}
-
-export function code({ children, className = '', copy, name }) {
-  return (
-    <CodeBlock className={className} copy={copy} name={name}>
-      {children}
-    </CodeBlock>
-  )
-}
-
-export function inlineCode({ children }) {
-  return (
-    <Box
-      as="pre"
-      paddingLeft={1.5}
-      paddingRight={1.5}
-      extend={{
-        display: 'inline-flex',
-        // backgroundColor: theme.colors.background,
-      }}>
-      <Box
-        as="code"
-        extend={{
-          fontSize: 16,
-          fontFamily:
-            'dm, Dank, Dank Mono, Fira Code, Hack, Consolas, monospace',
-          textRendering: 'optimizeLegibility',
-        }}>
-        {children}
-      </Box>
-    </Box>
-  )
+export function h6({ children }) {
+  return <Heading depth={6}>{children}</Heading>
 }
 
 export function p({ children }) {
@@ -248,6 +50,141 @@ export function p({ children }) {
   )
 }
 
+export function strong({ children }) {
+  return (
+    <Box as="strong" extend={{ display: 'inline', fontWeight: 600 }}>
+      {children}
+    </Box>
+  )
+}
+
+export function a({ href, children }) {
+  const { colors } = useTheme()
+  const router = useRouter()
+
+  const isExtern = href.indexOf('http') !== -1
+  const isAnchor = href.indexOf('#') === 0
+  const resolvedHref = isExtern
+    ? href
+    : isAnchor
+    ? router.pathname + href
+    : '/' + href
+
+  return (
+    <Link href={resolvedHref} passHref>
+      <Box
+        as="a"
+        display="inline"
+        href={resolvedHref}
+        extend={{
+          color: colors.foreground.link,
+          ':hover': {
+            color: colors.foreground.linkHover,
+          },
+          ':visited': {
+            color: colors.foreground.linkVisited,
+          },
+        }}>
+        {children}
+      </Box>
+    </Link>
+  )
+}
+
+export function pre({ children }) {
+  return children
+}
+
+export function ul({ children }) {
+  return (
+    <Box
+      as="ul"
+      space={1}
+      paddingLeft={4.5}
+      extend={{
+        lineHeight: 1.5,
+        fontFamily: 'inherit',
+      }}>
+      {children}
+    </Box>
+  )
+}
+export function ol({ children }) {
+  return (
+    <Box
+      as="ol"
+      space={1}
+      marginTop={2.5}
+      marginBottom={2.5}
+      paddingLeft={6}
+      extend={{
+        lineHeight: 1.5,
+        fontFamily: 'inherit',
+      }}>
+      {children}
+    </Box>
+  )
+}
+
+export function blockquote({ children }) {
+  const { colors } = useTheme()
+
+  return (
+    <Box
+      marginBottom={2}
+      padding={4}
+      paddingLeft={5}
+      paddingRight={5}
+      extend={{
+        backgroundColor: colors.background.blockquote,
+        borderRadius: 4,
+        '& p': {
+          marginBottom: 0,
+          marginTop: 0,
+        },
+        '& pre': {
+          backgroundColor: colors.background.blockquoteInlineCode,
+        },
+      }}>
+      {children}
+    </Box>
+  )
+}
+
+export function code({ children, className = '', copy, name }) {
+  return (
+    <Code className={className} copy={copy} name={name}>
+      {children}
+    </Code>
+  )
+}
+
+export function inlineCode({ children }) {
+  const { colors } = useTheme()
+
+  return (
+    <Box
+      as="pre"
+      paddingLeft={1.5}
+      paddingRight={1.5}
+      extend={{
+        display: 'inline-flex',
+        backgroundColor: colors.background.codeBlock,
+      }}>
+      <Box
+        as="code"
+        extend={{
+          fontSize: 16,
+          fontFamily:
+            'dm, Dank, Dank Mono, Fira Code, Hack, Consolas, monospace',
+          textRendering: 'optimizeLegibility',
+        }}>
+        {children}
+      </Box>
+    </Box>
+  )
+}
+
 export function tr({ children }) {
   return (
     <Box
@@ -262,6 +199,8 @@ export function tr({ children }) {
 }
 
 export function td({ children }) {
+  const { colors } = useTheme()
+
   return (
     <Box
       as="td"
@@ -273,7 +212,7 @@ export function td({ children }) {
         lineHeight: 1.4,
         borderTopWidth: 1,
         borderTopStyle: 'solid',
-        borderTopColor: 'rgb(200, 200, 200)',
+        borderTopColor: colors.tableDivider,
       }}>
       {children}
     </Box>
@@ -281,6 +220,8 @@ export function td({ children }) {
 }
 
 export function th({ children }) {
+  const { colors } = useTheme()
+
   return (
     <Box
       as="th"
@@ -295,7 +236,7 @@ export function th({ children }) {
         borderRightWidth: 0,
         borderLeftWidth: 0,
         borderStyle: 'solid',
-        borderColor: 'rgb(200, 200, 200)',
+        borderColor: colors.tableDivider,
       }}>
       {children}
     </Box>

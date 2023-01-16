@@ -1,12 +1,15 @@
 import React, { useState, useEffect, useContext } from 'react'
 import Highlight, { defaultProps } from 'prism-react-renderer'
-import github from 'prism-react-renderer/themes/github'
 import Head from 'next/head'
 import { Box } from 'kilvin'
-import { useFela } from 'react-fela'
+
+import useTheme from '../../styling/useTheme'
+
+import { useConfig } from '../Config'
 
 export default function CodeBlock({ children, className = '', copy, name }) {
-  const { theme } = useFela()
+  const { colors } = useTheme()
+  const { editorTheme } = useConfig()
 
   const language = className.replace(/language-/, '') || 'js'
 
@@ -21,7 +24,7 @@ export default function CodeBlock({ children, className = '', copy, name }) {
 
       <Highlight
         {...defaultProps}
-        theme={github}
+        theme={editorTheme}
         code={code}
         language={language}>
         {({ tokens, getTokenProps }) => (
@@ -31,7 +34,7 @@ export default function CodeBlock({ children, className = '', copy, name }) {
             marginTop={3}
             marginBottom={3}
             extend={{
-              backgroundColor: 'rgb(245, 245, 245)',
+              backgroundColor: colors.background.codeBlock,
               overflow: 'auto',
             }}>
             <Box
