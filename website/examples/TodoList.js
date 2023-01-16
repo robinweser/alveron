@@ -6,18 +6,20 @@ import { Box } from 'kilvin'
 import Button from '../components/examples/Button'
 import Input from '../components/examples/Input'
 
-function getStore() {
-  const model = {
-    input: '',
-    todos: [],
-  }
+const model = {
+  input: '',
+  todos: [],
+}
 
-  const actions = {
-    setInput: (state, input) => ({
+const actions = {
+  setInput: (state, input) => [
+    {
       ...state,
       input,
-    }),
-    addTodo: (state, text) => ({
+    },
+  ],
+  addTodo: (state, text) => [
+    {
       ...state,
       input: '',
       todos: [
@@ -27,8 +29,10 @@ function getStore() {
           checked: false,
         },
       ],
-    }),
-    toggleTodo: (state, id) => ({
+    },
+  ],
+  toggleTodo: (state, id) => [
+    {
       ...state,
       todos: state.todos.map((todo, index) => {
         if (index === id) {
@@ -40,17 +44,14 @@ function getStore() {
 
         return todo
       }),
-    }),
-    removeTodo: (state, id) => ({
+    },
+  ],
+  removeTodo: (state, id) => [
+    {
       ...state,
       todos: [...state.todos.slice(0, id), ...state.todos.slice(id + 1)],
-    }),
-  }
-
-  return {
-    model,
-    actions,
-  }
+    },
+  ],
 }
 
 function TodoItem({ id, text, checked, toggle, remove }) {
@@ -69,7 +70,10 @@ function TodoItem({ id, text, checked, toggle, remove }) {
 }
 
 export default function TodoList() {
-  const { state, actions } = useStore(getStore())
+  const [state, { setInput, addTodo, toggleTodo, removeTodo }] = useStore(
+    actions,
+    model
+  )
 
   return (
     <Box space={8}>
@@ -77,17 +81,17 @@ export default function TodoList() {
         <Input
           placeholder="e.g. Try Alveron"
           value={state.input}
-          onChange={actions.setInput}
+          onChange={setInput}
         />
-        <Button action={() => actions.addTodo(state.input)}>Add</Button>
+        <Button action={() => addTodo(state.input)}>Add</Button>
       </Box>
       <Box space={4}>
         {state.todos.map((todo, index) => (
           <TodoItem
             key={todo.text + index}
             {...todo}
-            toggle={() => actions.toggleTodo(index)}
-            remove={() => actions.removeTodo(index)}
+            toggle={() => toggleTodo(index)}
+            remove={() => removeTodo(index)}
           />
         ))}
       </Box>

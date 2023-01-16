@@ -24,16 +24,14 @@ You don't write a state management library without providing a counter example.
 const model = 0
 
 const actions = {
-  reset: () => model,
-  increment: (state) => state + 1,
-  decrement: (state) => state - 1,
-  incrementBy: (state, increment) => state + increment,
-  decrementBy: (state, decrement) => state - decrement,
-}
-
-const effects = {
-  incrementIn: (actions, effects, delay) =>
-    setTimeout(actions.increment, delay),
-  incrementIn2Seconds: (actions, effects) => effects.incrementIn(2000),
+  reset: () => [model],
+  increment: (state) => [state + 1],
+  decrement: (state) => [state - 1],
+  incrementBy: (state, increment) => [state + increment],
+  decrementBy: (state, decrement) => [state - decrement],
+  incrementIn: (state, delay) => [
+    state,
+    (actions) => setTimeout(actions.increment, delay),
+  ],
 }
 ```

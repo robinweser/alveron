@@ -25,37 +25,45 @@ const model = {
 }
 
 const actions = {
-  setInput: (state, input) => ({
-    ...state,
-    input,
-  }),
-  addTodo: (state, text) => ({
-    ...state,
-    input: '',
-    todos: [
-      ...state.todos,
-      {
-        text,
-        checked: false,
-      },
-    ],
-  }),
-  toggleTodo: (state, id) => ({
-    ...state,
-    todos: state.todos.map((todo, index) => {
-      if (index === id) {
-        return {
-          ...todo,
-          checked: !todo.checked,
+  setInput: (state, input) => [
+    {
+      ...state,
+      input,
+    },
+  ],
+  addTodo: (state, text) => [
+    {
+      ...state,
+      input: '',
+      todos: [
+        ...state.todos,
+        {
+          text,
+          checked: false,
+        },
+      ],
+    },
+  ],
+  toggleTodo: (state, id) => [
+    {
+      ...state,
+      todos: state.todos.map((todo, index) => {
+        if (index === id) {
+          return {
+            ...todo,
+            checked: !todo.checked,
+          }
         }
-      }
 
-      return todo
-    }),
-  }),
-  removeTodo: (state, id) => ({
-    ...state,
-    todos: [...state.todos.slice(0, id), ...state.todos.slice(id + 1)],
-  }),
+        return todo
+      }),
+    },
+  ],
+  removeTodo: (state, id) => [
+    {
+      ...state,
+      todos: [...state.todos.slice(0, id), ...state.todos.slice(id + 1)],
+    },
+  ],
 }
 ```

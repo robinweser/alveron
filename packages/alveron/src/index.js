@@ -1,3 +1,4 @@
 import useStore from './useStore'
+import useStoreWithMiddleware from './useStoreWithMiddleware'
 
-export { useStore }
+export { useStore, useStoreWithMiddleware }

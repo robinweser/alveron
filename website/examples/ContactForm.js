@@ -6,65 +6,65 @@ import { Box } from 'kilvin'
 import Button from '../components/examples/Button'
 import Input from '../components/examples/Input'
 
-function getStore() {
-  const model = {
-    loading: false,
-    error: false,
-    firstName: '',
-    lastName: '',
-    email: '',
-  }
+const model = {
+  loading: false,
+  error: null,
+  firstName: '',
+  lastName: '',
+  email: '',
+}
 
-  const actions = {
-    reset: () => model,
-    setLoading: (state, loading) => ({
-      ...state,
-      loading,
-    }),
-    setError: (state, error) => ({
-      ...state,
-      error,
-    }),
-    setFirstName: (state, firstName) => ({
+const sendForm = (data, onSuccess, onError) =>
+  setTimeout(() => {
+    if (data.firstName && data.lastName && data.email) {
+      alert('Success!')
+      onSuccess()
+    } else {
+      onError('Data missing!')
+    }
+  }, 2000)
+
+const actions = {
+  setFirstName: (state, firstName) => [
+    {
       ...state,
       firstName,
-    }),
-    setLastName: (state, lastName) => ({
+    },
+  ],
+  setLastName: (state, lastName) => [
+    {
       ...state,
       lastName,
-    }),
-    setEmail: (state, email) => ({
+    },
+  ],
+  setEmail: (state, email) => [
+    {
       ...state,
       email,
-    }),
-  }
-
-  const effects = {
-    submitForm: (actions, effects, data) => {
-      actions.setLoading(true)
-
-      setTimeout(() => {
-        if (data.firstName && data.lastName && data.email) {
-          alert('Success!')
-          actions.reset()
-        } else {
-          actions.setError('Data missing!')
-        }
-
-        actions.setLoading(false)
-      }, 2000)
     },
-  }
-
-  return {
-    model,
-    actions,
-    effects,
-  }
+  ],
+  submitForm: (state, data) => [
+    {
+      ...state,
+      loading: true,
+    },
+    (actions) => sendForm(data, actions.onSuccess, actions.onError),
+  ],
+  onError: (state, error) => [
+    {
+      ...state,
+      loading: false,
+      error,
+    },
+  ],
+  onSuccess: (state) => [model],
 }
 
 export default function ContactForm() {
-  const { state, actions, effects } = useStore(getStore())
+  const [state, { setFirstName, setLastName, setEmail, submitForm }] = useStore(
+    actions,
+    model
+  )
   const [delay, setDelay] = React.useState(500)
 
   return (
@@ -73,24 +73,20 @@ export default function ContactForm() {
         <Input
           placeholder="First name"
           value={state.firstName}
-          onChange={actions.setFirstName}
+          onChange={setFirstName}
         />
         <Input
           placeholder="Last name"
           value={state.lastName}
-          onChange={actions.setLastName}
+          onChange={setLastName}
         />
-        <Input
-          placeholder="E-mail"
-          value={state.email}
-          onChange={actions.setEmail}
-        />
+        <Input placeholder="E-mail" value={state.email} onChange={setEmail} />
       </Box>
       {state.error && <Box extend={{ color: 'red' }}>{state.error}</Box>}
       <Button
         loading={state.loading}
         action={() =>
-          effects.submitForm({
+          submitForm({
             firstName: state.firstName,
             lastName: state.lastName,
             email: state.email,

@@ -21,52 +21,59 @@ This example is closer to real-world usage and shows how effects can be used to 
 </Box>
 
 ```js
+function sendForm(data, onSuccess, onError) {
+  setTimeout(() => {
+    if (data.firstName && data.lastName && data.email) {
+      alert('Success!')
+      onSuccess()
+    } else {
+      onError('Data missing!')
+    }
+  }, 2000)
+}
+
+
 const model = {
   loading: false,
-  error: false,
+  error: null,
   firstName: '',
   lastName: '',
   email: '',
 }
 
 const actions = {
-  reset: () => model,
-  setLoading: (state, loading) => ({
-    ...state,
-    loading,
-  }),
-  setError: (state, error) => ({
-    ...state,
-    error,
-  }),
-  setFirstName: (state, firstName) => ({
-    ...state,
-    firstName,
-  }),
-  setLastName: (state, lastName) => ({
-    ...state,
-    lastName,
-  }),
-  setEmail: (state, email) => ({
-    ...state,
-    email,
-  }),
-}
-
-const effects = {
-  submitForm: (actions, effects, data) => {
-    actions.setLoading(true)
-
-    setTimeout(() => {
-      if (data.firstName && data.lastName && data.email) {
-        alert('Success!')
-        actions.reset()
-      } else {
-        actions.setError('Data missing!')
-      }
-
-      actions.setLoading(false)
-    }, 2000)
-  },
+  setFirstName: (state, firstName) => [
+    {
+      ...state,
+      firstName,
+    },
+  ],
+  setLastName: (state, lastName) => [
+    {
+      ...state,
+      lastName,
+    },
+  ],
+  setEmail: (state, email) => [
+    {
+      ...state,
+      email,
+    },
+  ],
+  submitForm: (state, data) => [
+    {
+      ...state,
+      loading: true,
+    },
+    (actions) => sendForm(data, actions.onSuccess, actions.onError),
+  ],
+  onError: (state, error) => [
+    {
+      ...state,
+      loading: false,
+      error,
+    },
+  ],
+  onSuccess: (state) => [model],
 }
 ```
