@@ -12,6 +12,7 @@
   ],
   "packageManager": "pnpm@7.11.0",
   "devDependencies": {
+    "lerna": "^4.0.0",
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
     "turbo": "^1.5.6"
