@@ -1,4 +1,4 @@
-type Action = (state: any, ...payload: Array<any>) => any
+type Action = (state: any, ...payload: Array<any>) => [any]
 type ActionMap = {
   [actionName: string]: Action
 }

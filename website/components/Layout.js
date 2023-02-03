@@ -34,6 +34,7 @@ export default function Layout({ children, headings }) {
           padding={4}
           paddingLeft={0}
           paddingRight={8}
+          paddingBottom={10}
           space={6}
           extend={{
             overflowY: 'scroll',

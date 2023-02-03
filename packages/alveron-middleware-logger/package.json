@@ -1,7 +1,7 @@
 {
-  "name": "alveron",
+  "name": "alveron-middleware-logger",
   "version": "5.0.2",
-  "description": "Elm-inspired state management for React",
+  "description": "Logging middleware for Alveron",
   "author": "Robin Weser <contact@weser.io>",
   "license": "MIT",
   "homepage": "https://alveron.js.org",
@@ -32,9 +32,9 @@
     "release": "pnpm clean && pnpm build && npm publish"
   },
   "keywords": [
-    "state management",
-    "state",
-    "elm"
+    "alveron",
+    "middleware",
+    "logging"
   ],
   "dependencies": {
     "fast-loops": "^1.1.3"

@@ -1,13 +1,46 @@
 # Effect
 
-Apart from [actions](concepts/actions), there is another way to update the state: (side) effects.
-Effects do not actually update the state directly, but rather call an equivalent action or other effects once resolved.
+Apart from pure state updates, Alveron also supports side effects out of the box.
+Effects can only be triggered by invoking an action.
+They are passed as the second item in the array returned from actions.
 
 ```
-type Effect = (actions: Object, effects: Object,...payload) => void
+type Effect = (actions: Object) => void
 ```
 
-They're used for asynchronous operations such as API requests or delayed calls.
-For example, sending an API request to get some user data will not immediately yield an answer. The server must first receive the call, process it and send an answer over the network which unfortunately takes some time.
+Asynchronous behaviour is very common in software, but deailing with it oftentimes is very painful.
+Unpredictable side effects are one of the main sources for errors in modern software. They are oftentimes very hard to debug and sometimes even hard to reproduce.
+But it doesn't have to be like that! In order to prevent that, effects in Alveron are very limited making it much safer without loosing the flexibility:
+Effects do not update the state directly, but rather invoke actions themselves, bringing back the predictable nature of synchronous actions.
 
-Yet we learned, that actions shouldn't cause side effects and be predictable in their output. That's where effects fill the gap. When an effect is called, it e.g. sends the API requests, waits for the answer, and then calls an action with the received data once.
+## Example
+
+The following example shows a basic API call scenario where we fetch some data with a loading spinner and eventually get either data or an error back.
+
+```js
+const model = {
+  loading: false,
+  error: null,
+  data: null,
+}
+
+const effect = async (onSuccess, onFailure) => {
+  const res = await fetch('...')
+
+  if (res.status === 200) {
+    const data = await res.json()
+    onSuccess(data)
+  } else {
+    onFailure(res.error)
+  }
+}
+
+const actions = {
+  setSuccess: (prevState, data) => [{ loading: false, error: null, data }],
+  setError: (prevState, error) => [{ loading: false, error, data: null }],
+  fetchData: (prevState) => [
+    { ...prevState, loading: true },
+    (actions) => effect(actions.setSuccess, actions.setError),
+  ],
+}
+```

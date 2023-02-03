@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useStore } from 'alveron'
-
 import { Box } from 'kilvin'
 
 import Button from '../components/examples/Button'
@@ -32,8 +31,8 @@ export default function Counter() {
       <Box extend={{ fontSize: 40, fontWeight: 500 }}>{state}</Box>
       <Box direction="row" space={8}>
         <Button action={() => decrementBy(2)}>-2</Button>
-        <Button action={decrement}>-1</Button>
-        <Button action={increment}>+1</Button>
+        <Button action={() => decrement()}>-1</Button>
+        <Button action={() => increment()}>+1</Button>
         <Button action={() => incrementBy(2)}>+2</Button>
       </Box>
       <Box direction="row" space={8}>
@@ -43,7 +42,7 @@ export default function Counter() {
           ms
         </Box>
       </Box>
-      <Button action={reset}>Reset</Button>
+      <Button action={() => reset()}>Reset</Button>
     </Box>
   )
 }

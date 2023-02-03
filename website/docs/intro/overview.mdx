@@ -1,4 +1,42 @@
 # Overview
 
-Alveron is an Elm-inspired state management library for React that supports asynchronous side effects as a first class citizen.<br />
-It's super lightweight at only 1.2kb and uses React's useState under the hood.
+Alveron is an [Elm](https://elm-lang.org)-inspired state management library for React that supports asynchronous side effects as a first class citizen.<br />
+It's super lightweight at only 1.2kb and uses React's [useState](https://beta.reactjs.org/reference/react/useState) under the hood.
+
+## Installation
+
+```bash
+# yarn
+yarn add alveron
+
+# pnpm
+pnpm add alveron
+
+# npm
+npm i --save alveron
+```
+
+## The Gist
+
+```jsx
+import * as React from 'react'
+import { useStore } from 'alveron'
+
+const model = 0
+const actions = {
+  increment: (prevState) => [prevState + 1],
+  decrement: (prevState) => [prevState - 1],
+}
+
+function Counter() {
+  const [state, { increment, decrement }] = useStore(actions, model)
+
+  return (
+    <div>
+      Count: {state}
+      <button onClick={() => increment()}>+</button>
+      <button onClick={() => decrement()}>-</button>
+    </div>
+  )
+}
+```

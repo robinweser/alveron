@@ -1,54 +1,41 @@
 # useStore
 
-It uses useState under the hood and can be considered just a small abstraction layer over basic hooks.
+useStore is Alveron's main API.
+It uses React's [useState](https://beta.reactjs.org/reference/react/useState) under the hood.
 
-It accepts the same options and returns the same interface.
+If an updated `model` is passed in, the store will reset to the new model.
 
-## Options
+## Arguments
 
-| Argument | Type      | Description                                                                                           |
-| -------- | --------- | ----------------------------------------------------------------------------------------------------- |
-| model    | _any?_    | The default model reflecting the initial state shape                                                  |
-| actions  | _Object?_ | A map of actions where the key represents the action name and the value represents the action reducer |
-| effects  | _Object?_ | A map of effects where the key represents the effect name and the value represents the updater        |
+| Argument | Type      | Description                                                                                                              |
+| -------- | --------- | ------------------------------------------------------------------------------------------------------------------------ |
+| actions  | _Object?_ | A map of [actions](concepts/action) where the key represents the action name and the value represents the action reducer |
+| model    | _any?_    | Our store model reflecting the initial state shape                                                                       |
 
 ## Returns
 
-_(Object)_ an object containing the state, actions and effects to be used inside a React component.
+_(Array)_ an array containing the state and actions to be used inside a React component.
 
 ## Example
 
 ```jsx
+import * as React from 'react'
 import { useStore } from 'alveron'
 
-function getStore() {
-  const model = 0
-
-  const actions = {
-    increment: (state) => state + 1,
-    decrement: (state) => state - 1,
-  }
-
-  const effects = {
-    incrementWithDelay: (actions) => setTimeout(actions.increment, 1000),
-  }
-
-  return {
-    model,
-    actions,
-    effects,
-  }
+const model = 0
+const actions = {
+  increment: (prevState) => [prevState + 1],
+  decrement: (prevState) => [prevState - 1],
 }
 
 function Counter() {
-  const { state, actions, effects } = useStore(getStore())
+  const [state, { increment, decrement }] = useStore(actions, model)
 
   return (
     <div>
-      <div>{state}</div>
+      Count: {state}
       <button onClick={increment}>+</button>
       <button onClick={decrement}>-</button>
-      <button onClick={effects.incrementWithDelay}>+ in 1s</button>
     </div>
   )
 }

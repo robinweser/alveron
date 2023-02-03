@@ -1,0 +1,23 @@
+# useStoreWithMiddleware
+
+useStoreWithMiddleware is very similar to [useStore](api/useStore).
+It is a so-called factory that adds middleware to the default useStore.
+
+## Arguments
+
+| Argument   | Type     | Description                                                                       |
+| ---------- | -------- | --------------------------------------------------------------------------------- |
+| middleware | _Array?_ | A list of [middleware](concepts/middleware) that is added to the default useStore |
+
+## Returns
+
+_([useStore](api/useStore))_ instance of useStore with added middleware
+
+## Example
+
+```js
+import { useStore } from 'alveron'
+import logger from 'alveron-middleware-logger'
+
+const useStore = useStoreWithMiddleware([logger])
+```

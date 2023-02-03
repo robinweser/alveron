@@ -1,8 +1,28 @@
 # Model
 
 The model describes the **initial state** of a store.
-It can be composed of any shape and can be filled with some default data before any [action](concepts/action) is called yet.
+It can be composed of any shape.
+
+If no model is provided, the initial state will be set to `undefined`.
 
 ```
 type Model = any
+```
+
+## Example
+
+```js
+// primitives
+const model = 0
+const model = 'Some text'
+
+// arrays
+const model = ['First Todo', 'Second Todo', 'Third Todo']
+
+// objects
+const model = {
+  loading: false,
+  error: null,
+  data: null,
+}
 ```

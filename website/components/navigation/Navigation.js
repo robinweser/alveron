@@ -8,7 +8,9 @@ export default function Navigation({ root, children }) {
     children,
     (navigation, item, name) => [
       ...navigation,
-      <NavGroup name={name}>{item}</NavGroup>,
+      <NavGroup key={name} name={name}>
+        {item}
+      </NavGroup>,
     ],
     []
   )

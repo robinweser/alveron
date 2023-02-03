@@ -1,6 +1,7 @@
 {
   "name": "next-documentation-helpers",
   "version": "1.0.1",
+  "private": true,
   "description": "A toolbelt for creating documentation pages with Next",
   "author": "Robin Weser <contact@weser.io>",
   "license": "MIT",

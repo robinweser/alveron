@@ -1,7 +1,6 @@
 {
   "Intro": {
     "Overview": "intro/overview",
-    "Getting Started": "intro/getting-started",
     "Motivation": "intro/motivation",
     "Theoretical Background": "intro/theoretical-background",
     "Design Principles": "intro/design-principles",
@@ -11,10 +10,14 @@
     "Model": "concepts/model",
     "Action": "concepts/action",
     "Effect": "concepts/effect",
-    "Middlware": "concepts/middleware"
+    "Middleware": "concepts/middleware"
+  },
+  "Recipes": {
+    "Persisted Data": "recipes/persisted-data"
   },
   "API Reference": {
-    "useStore": "api/useStore"
+    "useStore": "api/useStore",
+    "useStoreWithMiddleware": "api/useStoreWithMiddleware"
   },
   "Examples": {
     "Counter": "examples/counter",

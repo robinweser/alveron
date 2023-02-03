@@ -1,27 +1,56 @@
 # Action
 
-Actions are used to update the state in a functional way.
-They are so called **reducers** that receive both the current state and some payload and return the new state.
+Actions are used to update the state in a predictable way.
+Actions are so-called reducers. They take the previous state and a payload and reduce those to the next state.
+Actions are the single source of truth in terms of state updates. This pattern is also known as unidirectional data flow.
 
 ```
-type Action = (previousState: any, ...payload) => any
+type Action = (prevState: any, ...payload) => [newState: any, effect?: function]
 ```
 
-While it doesn't enforce any restrictions on how to calculate the new state, here are some recommendations:
+> **Note**: Actions may also return an optional second item. Read more about [effects](concepts/effect).
+
+## Principles
+
+Since we [can't enforce immutability nor pure functions in JavaScript](intro/design-principles), here are some recommendations on how to write good actions:
 
 - Do not mutate the current state, but rather use **immutable data structures**
 - Ensure that all actions are **pure functions**
 - All actions should have a **single responsibility**
 
-## Pure Functions
+### Pure Functions
 
 A pure function should:
 
-- always return the same output for given input
-- not manipulate the input
+- given the same input, always return the same output
+- not mutate the input in any way
 - not cause side effects (e.g. API calls)
 
-## Unidirectional Data Flow
+## Example
 
-Given that the only way to update the state is calling a action, we always have an unidirectional data flow.
-Calling actions will automatically update the state and rerender all consuming components to ensure predictable and up-to-date output.
+```js
+// number primitives
+const model = 0
+const actions = {
+  increment: (state) => [state + 1],
+  decrement: (state) => [state - 1],
+}
+
+// arrays
+const model = []
+const actions = {
+  addItem: (state, item) => [[...model, item]],
+  removeItem: (state, item) => [model.filter((i) => i === item)],
+  clear: () => model,
+}
+
+// objects
+const model = {
+  firstName: '',
+  lastName: '',
+}
+const actions = {
+  updateFirstName: (state, firstName) => [{ ...state, firstName }],
+  updateLastName: (state, lastName) => [{ ...state, lastName }],
+}
+```

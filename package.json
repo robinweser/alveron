@@ -2,12 +2,15 @@
   "name": "alveron",
   "private": true,
   "scripts": {
-    "build": "pnpm turbo run build"
+    "build": "pnpm turbo run build",
+    "release": "pnpm prepare-release && lerna publish --force-publish",
+    "prepare-release": "git pull --rebase && pnpm build"
   },
   "workspaces": [
-    "packages/**",
+    "packages/*",
     "website"
   ],
+  "packageManager": "pnpm@7.11.0",
   "devDependencies": {
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2",

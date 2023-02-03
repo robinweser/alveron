@@ -1,8 +1,16 @@
 {
   "pipeline": {
     "build": {
-      "dependsOn": ["^build"],
-      "outputs": [".next/**", "lib/**", "es/**", "out/**"]
+      "outputs": [".next/**"]
+    },
+    "alveron#build": {
+      "outputs": ["lib/**", "es/**"]
+    },
+    "alveron-middleware-logger#build": {
+      "outputs": ["lib/**", "es/**"]
+    },
+    "alveron-middleware-persistance#build": {
+      "outputs": ["lib/**", "es/**"]
     }
   }
 }

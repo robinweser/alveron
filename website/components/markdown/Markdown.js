@@ -1,9 +1,9 @@
-import * as React from 'react'
+import React, { createContext, useContext } from 'react'
 import { Box } from 'kilvin'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useFela } from 'react-fela'
-import { getHeadingId } from 'next-documentation-helpers'
+import { getHeadingId, getHeadingContent } from 'next-documentation-helpers'
 
 import config from '../../config'
 
@@ -91,10 +91,6 @@ export function a({ href, children }) {
   )
 }
 
-export function pre({ children }) {
-  return children
-}
-
 export function ul({ children }) {
   return (
     <Box
@@ -126,8 +122,17 @@ export function ol({ children }) {
   )
 }
 
+function checkIsNote(children) {
+  return children.find(
+    (child) => child?.props?.children?.[0]?.props?.children === 'Important Note'
+  )
+}
+
 export function blockquote({ children }) {
   const { colors } = useTheme()
+
+  // TODO: do sth. with it
+  const isNote = checkIsNote(children)
 
   return (
     <Box
@@ -151,20 +156,27 @@ export function blockquote({ children }) {
   )
 }
 
-export function code({ children, className = '', copy, name }) {
+const CodeBlockContext = createContext()
+
+export function pre({ children }) {
   return (
-    <Code className={className} copy={copy} name={name}>
+    <CodeBlockContext.Provider value={true}>
       {children}
-    </Code>
+    </CodeBlockContext.Provider>
   )
 }
 
-export function inlineCode({ children }) {
+export function code({ children, ...props }) {
+  const isCodeBlock = useContext(CodeBlockContext)
   const { colors } = useTheme()
+
+  if (isCodeBlock) {
+    return <Code {...props}>{children}</Code>
+  }
 
   return (
     <Box
-      as="pre"
+      as="span"
       paddingLeft={1.5}
       paddingRight={1.5}
       extend={{
