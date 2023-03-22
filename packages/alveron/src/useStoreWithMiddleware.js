@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { objectReduce, arrayReduce } from 'fast-loops'
 
-export default function useStoreWithMiddlware(middleware = []) {
+export default function useStoreWithMiddleware(middleware = []) {
   return function useStore(actions = {}, model) {
     const [state, setState] = useState(model)
 
