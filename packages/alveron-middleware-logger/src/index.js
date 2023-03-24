@@ -1,5 +1,5 @@
-export default function middleware() {
-  return function logger(nextState, { action, payload, prevState }) {
+export default function logger() {
+  function middleware(nextState, { action, payload, prevState }) {
     console.log('ALVERON: ' + action, {
       payload,
       prevState,
@@ -7,5 +7,9 @@ export default function middleware() {
     })
 
     return nextState
+  }
+
+  return {
+    middleware,
   }
 }

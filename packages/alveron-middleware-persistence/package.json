@@ -1,7 +1,7 @@
 {
-  "name": "alveron-middleware-persistance",
-  "version": "6.0.0",
-  "description": "Persistance layer middleware for Alveron",
+  "name": "alveron-middleware-persistence",
+  "version": "6.1.0",
+  "description": "Persistence layer middleware for Alveron",
   "author": "Robin Weser <contact@weser.io>",
   "license": "MIT",
   "homepage": "https://alveron.js.org",

@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
-import { objectReduce, arrayReduce } from 'fast-loops'
+import { objectReduce, arrayReduce, arrayEach } from 'fast-loops'
 
-export default function useStoreWithMiddlware(middleware = []) {
+export default function useStoreWithMiddleware(middleware = []) {
   return function useStore(actions = {}, model) {
     const [state, setState] = useState(model)
 
-    // force update state on model change
-    useEffect(() => setState(model), [model])
+    useEffect(
+      () => arrayEach(middleware, ({ effect }) => effect && effect(setState)),
+      []
+    )
 
     const resolvedActions = objectReduce(
       actions,
@@ -38,7 +40,7 @@ export default function useStoreWithMiddlware(middleware = []) {
 
             return arrayReduce(
               middleware,
-              (newState, middleware) =>
+              (newState, { middleware }) =>
                 middleware(newState, { action: name, payload, prevState }),
               newState
             )

@@ -13,7 +13,7 @@
     "Middleware": "concepts/middleware"
   },
   "Recipes": {
-    "Persisted Data": "recipes/persisted-data"
+    "Data Persistence": "recipes/data-persistence"
   },
   "API Reference": {
     "useStore": "api/useStore",

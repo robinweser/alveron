@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { objectReduce, arrayReduce } from 'fast-loops'
 
-import useStoreWithMiddlware from './useStoreWithMiddleware'
+import useStoreWithMiddleware from './useStoreWithMiddleware'
 
-export default useStoreWithMiddlware()
+export default useStoreWithMiddleware()
