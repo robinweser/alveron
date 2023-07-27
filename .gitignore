@@ -24,5 +24,6 @@ Thumbs.db
 .next
 node_modules
 lib
-es 
+es
+types
 coverage

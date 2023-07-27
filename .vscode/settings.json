@@ -20,6 +20,7 @@
     "**/node_modules": true,
     "**/lib": true,
     "**/es ": true,
+    "**/types": true,
     "**/coverage": true
   }
 }

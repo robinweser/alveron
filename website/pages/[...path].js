@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { join, dirname } from 'path'
 import { getAllPages, getPageData } from 'next-documentation-helpers'
-import { MDXRemote } from 'next-mdx-remote'
+z
 import { Box } from 'kilvin'
 
 import Template from '../components/Template'

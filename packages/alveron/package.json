@@ -9,48 +9,36 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
-  "types": "index.d.ts",
+  "types": "types/index.d.ts",
   "files": [
     "LICENSE",
     "README.md",
-    "lib/**",
     "es/**",
-    "index.d.ts"
+    "lib/**",
+    "types/**"
   ],
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "clean": "rimraf lib es coverage",
-    "build": "pnpm clean && pnpm build:es && pnpm build:lib",
-    "build:es": "babel src --out-dir es --ignore \"src/__tests__\"",
-    "build:lib": "cross-env BABEL_ENV=commonjs babel src --out-dir lib --ignore \"src/__tests__\"",
-    "dev": "npm run dev:lib & npm run dev:es",
-    "dev:lib": "BABEL_ENV=commonjs babel src -d lib -w",
-    "dev:es": "babel src -d es -w",
-    "release": "pnpm clean && pnpm build && npm publish"
+    "clean": "rimraf lib es types",
+    "build": "tsc -b ./tsconfig.esm.json ./tsconfig.cjs.json ./tsconfig.types.json",
+    "dev": "tsc -w",
+    "prepublish": "pnpm build",
+    "release": "pnpm clean && npm publish"
   },
   "keywords": [
     "state management",
     "state",
     "elm"
   ],
-  "dependencies": {
-    "fast-loops": "^1.1.3"
-  },
   "peerDependencies": {
     "react": ">16.3.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.0",
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.2.0",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
-    "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "^23.6.0",
-    "cross-env": "^7.0.3",
-    "jest": "^27.2.4",
+    "@types/react": "^18.2.14",
+    "typescript": "^5.1.6",
     "prettier": "^2.4.1",
     "rimraf": "^3.0.2"
   }

@@ -18,18 +18,20 @@ export default function persistence({ key, getStorage, actions, onHydrated }) {
   function effect(setState) {
     const storage = getStorage()
 
+    let parsedData
     if (storage) {
       const data = storage.getItem(key)
 
       if (data) {
         try {
-          setState(JSON.parse(data))
+          parsedData = JSON.parse(data)
+          setState(parsedData)
         } catch (e) {}
       }
     }
 
     if (onHydrated) {
-      onHydrated()
+      onHydrated(parsedData)
     }
   }
 
