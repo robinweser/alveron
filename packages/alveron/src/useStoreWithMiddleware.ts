@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+type StoreContext = Record<string, any>
 type MiddlewareContext = {
   action: string
   payload: any
@@ -32,7 +33,8 @@ export default function useStoreWithMiddleware<ActionMap, M>(
 ) {
   return function useStore<ActionMap, Model extends M>(
     actions: Actions<ActionMap>,
-    defaultState: Model
+    defaultState: Model,
+    context: StoreContext
   ): [Model, ResolvedActions<ActionMap>] {
     const [state, setState] = useState<Model>(defaultState)
 
@@ -51,7 +53,10 @@ export default function useStoreWithMiddleware<ActionMap, M>(
           ...payload: any[]
         ) => [
           newState: Model,
-          effect: (actions: ResolvedActions<ActionMap>) => void
+          effect: (
+            actions: ResolvedActions<ActionMap>,
+            context: StoreContext
+          ) => void
         ]
 
         resolved[name] = (...payload) =>
@@ -75,7 +80,7 @@ export default function useStoreWithMiddleware<ActionMap, M>(
             }
 
             if (effect && typeof effect === 'function') {
-              effect(resolvedActions)
+              effect(resolvedActions, context)
             }
 
             return middleware.reduce(

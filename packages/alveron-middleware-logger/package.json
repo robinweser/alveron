@@ -1,6 +1,6 @@
 {
   "name": "alveron-middleware-logger",
-  "version": "6.1.1",
+  "version": "7.0.0",
   "description": "Logging middleware for Alveron",
   "author": "Robin Weser <contact@weser.io>",
   "license": "MIT",
