@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+type StoreContext = Record<string, any>
 type MiddlewareContext = {
   action: string
   payload: any
@@ -11,11 +12,11 @@ export type Middleware<Model> = {
   effect?: (setState: any) => void
 }
 
-export type Effect<Actions, Context = any> = (
+export type Effect<Actions, Context = StoreContext> = (
   actions: ResolvedActions<Actions>,
   context?: Context
 ) => void
-export type Action<Actions, M, P extends any[] = [], Context = any> = (
+export type Action<Actions, M, P extends any[] = [], Context = StoreContext> = (
   state: M,
   ...payload: P
 ) => [M, Effect<Actions, Context>?]
@@ -33,7 +34,7 @@ export type ResolvedActions<Actions> = {
 export default function useStoreWithMiddleware<ActionMap, M>(
   middleware: Array<Middleware<M>> = []
 ) {
-  return function useStore<ActionMap, Model extends M, Context = any>(
+  return function useStore<ActionMap, Model extends M, Context = StoreContext>(
     actions: Actions<ActionMap>,
     defaultState: Model,
     context?: Context
