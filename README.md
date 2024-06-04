@@ -1,84 +1,72 @@
 # Alveron
 
-> **Disclaimer**: Alveron was formerly published as **react-woodworm**. It was renamed in order to replace the previous [alveron](https://github.com/rofrischmann/alveron-old) package. The old react-woodworm version 4.0 is now published as alveron version 2.0. Sorry for the inconvenience.
+Alveron is a tiny (~0.8kb) [Elm](http://elm-lang.org)-inspired state management library for React with support asynchronous effects by default.</br>
+It's built on top of React's built-in hooks `useState` and `useOptimistic`.
 
-Alveron is an [Elm](http://elm-lang.org)-inspired state management library for React support asynchronous effects by default.    
-It uses React's new context API and is super lightweight at **only 1kb gzipped**.    
-From version 3.0.0, it also provides a [useAlveron hook](https://alveron.js.org/docs/api/useAlveron.html).
-
-It can handle both **local** [component state](https://reactjs.org/docs/faq-state.html) as well as **global** state.
-
-<img alt="TravisCI" src="https://travis-ci.org/rofrischmann/alveron.svg?branch=master"> <a href="https://codeclimate.com/github/rofrischmann/alveron/coverage"><img alt="Test Coverage" src="https://codeclimate.com/github/rofrischmann/alveron/badges/coverage.svg"></a> <img alt="npm downloads" src="https://img.shields.io/npm/dm/alveron.svg"> <img alt="gzipped size" src="https://img.shields.io/bundlephobia/minzip/alveron.svg?colorB=4c1&label=gzipped%20size"> <img alt="npm version" src="https://badge.fury.io/js/alveron.svg">
-
-## Support Me
-If you're using [Robin Frischmann](https://rofrischmann.de)'s packages, please consider supporting his [Open Source Work](https://github.com/rofrischmann) on [**Patreon**](https://www.patreon.com/rofrischmann).
+<img alt="npm version" src="https://badge.fury.io/js/alveron.svg"> <img alt="npm downloads" src="https://img.shields.io/npm/dm/alveron.svg"> <a href="https://bundlephobia.com/result?p=alveron@latest"><img alt="Bundlephobia" src="https://img.shields.io/bundlephobia/minzip/alveron.svg"></a>
 
 ## Installation
-```sh
-# yarn
-yarn add alveron
 
+```sh
 # npm
 npm i --save alveron
+# yarn
+yarn add alveron
+# pnpm
+pnpm add alveron
 ```
-> **Caution**: It requires `^react@16.3.0` to be present.
+
+> **Caution**: Alveron requires `^react@16.3.0` to be present. If you want to use the optimstic APIs it even requires `^react@19.0.0`.
 
 ## Documentation
 
-> We recommend starting with [Why](https://alveron.js.org/docs/introduction/Motivation.html) and [How](https://alveron.js.org/docs/introduction/How.html) to understand why Alveron exists and how it works.
+Documentation is hosted on https://alveron.js.org
 
-* [Introduction](https://alveron.js.org/docs/Introduction.html)
-* [Concepts](https://alveron.js.org/docs/Concepts.html)
-* [Advanced](https://alveron.js.org/docs/Advanced.html)
-* [API Reference](https://alveron.js.org/docs/API.html)
+> We recommend starting with [Motivation](https://alveron.js.org/intro/motivation) and [Theoretical Background](https://alveron.js.org/intro/theoretical-background) to understand why Alveron exists and how it works.
 
-## [Examples](https://alveron.js.org/docs/introduction/Examples.html)
-* [Counter](./examples/Counter)
-* [TodoList](./examples/TodoList)
-* [Async API](./examples/AsyncAPI)
+- [Introduction](https://alveron.js.org/docs/Introduction.html)
+- [Concepts](https://alveron.js.org/docs/Concepts.html)
+- [Advanced](https://alveron.js.org/docs/Advanced.html)
+- [API Reference](https://alveron.js.org/docs/API.html)
+
+## Examples
+
+- [Counter](https://alveron.js.org/examples/counter)
+- [Todo List](https://alveron.js.org/examples/todo-list)
+- [Contact Form](https://alveron.js.org/examples/contact-form)
 
 ## The Gist
 
-> Want to use Alveron with hooks already? Check out [Using Hooks](https://alveron.js.org/docs/advanced/UsingHooks.html).
-
-```javascript
+```tsx
 import React from 'react'
-import { createStore } from 'alveron'
+// alternatively we can useOptimsticStore wrapping useOptimistic under the hood
+import { useStore } from 'alveron'
 
-const model = 0
+type Model = number
+
+// Actions return a tuple containing the new state and an optional effect
 const actions = {
-  increment: prevState => prevState + 1,
-  decrement: prevState => prevState - 1,
-  reset: () => model
+  increment: (state: Model) => [state + 1],
+  incrementBy: (state: Model, increment: number) => [state + increment],
+  reset: () => [model],
+  resetAfter: (state: Model, duration: number) => [
+    state,
+    (actions) => setTimeout(actions.reset, duration),
+  ],
 }
 
-// It also supports async side effects
-// this is useful if you e.g. do API calls
-const effects = {
-  resetAsync: actions => setTimeout(
-    actions.reset,
-    1000
+function Counter() {
+  const [state, { increment, decrement, incrementBy, resetAfter }] = useStore(actions, 0)
+
+  return (
+    <div>
+      Count: {state}
+      <button onClick={() => increment()}>+</button>
+      <button onClick={() => incrementBy(2)}>+2</button>
+      <button onClick={() => resetAfter(1000)}>Reset after 1 second</button>
+    </div>
   )
 }
-
-const { Wrapper } = createStore({
-  model,
-  actions,
-  effects
-})
-
-const Counter = () => (
-  <Wrapper>
-    {({ state, actions, effects }) => (
-      <div>
-        Count: {state}
-        <button onClick={actions.increment}>+</button>
-        <button onClick={actions.decrement}>-</button>
-        <button onClick={effects.resetAsync}>Reset after 1 second</button>
-      </div>
-    )}
-  </Wrapper>
-)
 ```
 
 ## Users
@@ -88,6 +76,7 @@ const Counter = () => (
 - [Zeit](http://zeit.co)
 
 ## License
+
 Alveron is licensed under the [MIT License](http://opensource.org/licenses/MIT).<br>
 Documentation is licensed under [Creative Common License](http://creativecommons.org/licenses/by/4.0/).<br>
 Created with ♥ by [@rofrischmann](http://rofrischmann.de).

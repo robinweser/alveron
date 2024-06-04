@@ -1,3 +1,5 @@
+export * from './useStoreFactory'
 export { default as useStore } from './useStore'
-export * from './useStoreWithMiddleware'
 export { default as useStoreWithMiddleware } from './useStoreWithMiddleware'
+export { default as useOptimisticStore } from './useOptimisticStore'
+export { default as useOptimisticStoreWithMiddleware } from './useOptimisticStoreWithMiddleware'
