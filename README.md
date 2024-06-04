@@ -24,11 +24,6 @@ Documentation is hosted on https://alveron.js.org
 
 > We recommend starting with [Motivation](https://alveron.js.org/intro/motivation) and [Theoretical Background](https://alveron.js.org/intro/theoretical-background) to understand why Alveron exists and how it works.
 
-- [Introduction](https://alveron.js.org/docs/Introduction.html)
-- [Concepts](https://alveron.js.org/docs/Concepts.html)
-- [Advanced](https://alveron.js.org/docs/Advanced.html)
-- [API Reference](https://alveron.js.org/docs/API.html)
-
 ## Examples
 
 - [Counter](https://alveron.js.org/examples/counter)
@@ -79,4 +74,4 @@ function Counter() {
 
 Alveron is licensed under the [MIT License](http://opensource.org/licenses/MIT).<br>
 Documentation is licensed under [Creative Common License](http://creativecommons.org/licenses/by/4.0/).<br>
-Created with ♥ by [@rofrischmann](http://rofrischmann.de).
+Created with ♥ by [@robinweser](http://weser.io).
