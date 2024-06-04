@@ -22,17 +22,13 @@ export type ResolvedActions<Actions, Model> = {
     : never
 }
 
-export type Effect<Actions, Model> = (
-  actions: ResolvedActions<Actions, Model>
-) => void
+export type Effect<Actions, Model> = (actions: ResolvedActions<Actions, Model>) => void
 export type ActionReturn<Actions, Model> = [Model, Effect<Actions, Model>?]
 
 type UseState<T> = (initialState: T) => [T, any]
 
 export default function useStoreFactory<T>(useState: UseState<T>) {
-  return function useStoreWithMiddleware(
-    middleware: Array<Middleware<T>> = []
-  ) {
+  return function useStoreWithMiddleware(middleware: Array<Middleware<T>> = []) {
     return function useStore<Model extends T, Actions, Context = StoreContext>(
       actions: Actions & Record<string, (state: Model, ...payload: any) => any>,
       initialState: Model,
@@ -40,10 +36,7 @@ export default function useStoreFactory<T>(useState: UseState<T>) {
     ): [Model, ResolvedActions<Actions, Model>] {
       const [state, setState] = useState(initialState)
 
-      useEffect(
-        () => middleware.forEach(({ effect }) => effect && effect(setState)),
-        []
-      )
+      useEffect(() => middleware.forEach(({ effect }) => effect && effect(setState)), [])
 
       type ActionName = keyof Actions
       const actionNames = Object.keys(actions) as Array<ActionName>
