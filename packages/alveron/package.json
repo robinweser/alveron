@@ -1,6 +1,6 @@
 {
   "name": "alveron",
-  "version": "7.1.2",
+  "version": "8.0.0",
   "description": "Elm-inspired state management for React",
   "author": "Robin Weser <contact@weser.io>",
   "license": "MIT",
@@ -30,6 +30,11 @@
   "keywords": [
     "state management",
     "state",
+    "react",
+    "react-hooks",
+    "react-state",
+    "optimstic-ui",
+    "optimistic-updates",
     "elm"
   ],
   "peerDependencies": {

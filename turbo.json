@@ -1,11 +1,13 @@
 {
   "pipeline": {
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build"]
+    },
+    "website#build": {
       "outputs": [".next/**"]
     },
     "alveron#build": {
-      "outputs": ["lib/**", "es/**"]
+      "outputs": ["lib/**", "es/**", "types/**"]
     },
     "alveron-middleware-logger#build": {
       "outputs": ["lib/**", "es/**"]
