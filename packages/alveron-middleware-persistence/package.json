@@ -1,6 +1,6 @@
 {
   "name": "alveron-middleware-persistence",
-  "version": "8.0.2",
+  "version": "8.0.3",
   "description": "Persistence layer middleware for Alveron",
   "author": "Robin Weser <contact@weser.io>",
   "license": "MIT",

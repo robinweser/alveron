@@ -2,7 +2,7 @@
   "private": true,
   "name": "website",
   "description": "https://alveron.js.org",
-  "version": "8.0.2",
+  "version": "8.0.3",
   "scripts": {
     "analyze": "ANALYZE=true yarn build",
     "dev": "next dev",
