@@ -1,19 +1,20 @@
 {
-  "pipeline": {
+  "tasks": {
+    "setup": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
+    },
     "build": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
     },
-    "website#build": {
-      "outputs": [".next/**"]
+    "test": {
+      "dependsOn": ["^build"],
+      "outputs": ["**/__snapshots__/**"]
     },
-    "alveron#build": {
-      "outputs": ["lib/**", "es/**", "types/**"]
-    },
-    "alveron-middleware-logger#build": {
-      "outputs": ["lib/**", "es/**"]
-    },
-    "alveron-middleware-persistance#build": {
-      "outputs": ["lib/**", "es/**"]
+    "coverage": {
+      "dependsOn": ["^build"],
+      "outputs": ["**/__snapshots__/**", "coverage/**"]
     }
   }
 }

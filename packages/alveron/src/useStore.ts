@@ -1,3 +1,3 @@
-import useStoreWithMiddleware from './useStoreWithMiddleware'
+import useStoreWithMiddleware from './useStoreWithMiddleware.js'
 
 export default useStoreWithMiddleware()

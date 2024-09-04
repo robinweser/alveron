@@ -1,5 +1,13 @@
-export default function persistence({ key, getStorage, actions, onHydrated }) {
-  function middleware(nextState, { action }) {
+import { Middleware, MiddlewareContext } from "alveron"
+
+type Config<T> = {
+  key: string,
+  getStorage: () => Storage,
+  actions: Array<string>
+  onHydrated: (data?: T) => void
+}
+export default function persistence<T>({ key, getStorage, actions, onHydrated }: Config<T>): Middleware {
+  function middleware(nextState: any, { action }: MiddlewareContext) {
     if (actions && Array.isArray(actions) && !actions.includes(action)) {
       return nextState
     }
@@ -15,7 +23,7 @@ export default function persistence({ key, getStorage, actions, onHydrated }) {
     return nextState
   }
 
-  function effect(setState) {
+  function effect(setState: any) {
     const storage = getStorage()
 
     let parsedData

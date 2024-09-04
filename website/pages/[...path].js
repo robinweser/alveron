@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { join, dirname } from 'path'
 import { getAllPages, getPageData } from 'next-documentation-helpers'
-z
+
 import { Box } from 'kilvin'
 
 import Template from '../components/Template'
@@ -14,8 +14,10 @@ import ContactForm from '../examples/ContactForm'
 import TodoList, from '../examples/TodoList'
 
 import config from '../config'
+import { MDXRemote } from 'next-mdx-remote'
 
 export default function Page({ id, content, headings, path }) {
+
   return (
     <Template>
       <Layout headings={headings}>
