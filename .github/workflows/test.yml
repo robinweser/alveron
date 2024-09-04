@@ -49,4 +49,4 @@ jobs:
 
       - name: Install dependencies
         run: pnpm -r install
-      - run: pnpm run check
+      - run: pnpm run test
