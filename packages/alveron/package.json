@@ -1,31 +1,40 @@
 {
   "name": "alveron",
-  "version": "8.0.0",
+  "version": "8.0.2",
   "description": "Elm-inspired state management for React",
   "author": "Robin Weser <contact@weser.io>",
   "license": "MIT",
   "homepage": "https://alveron.js.org",
   "repository": "https://github.com/robinweser/alveron.git",
-  "main": "lib/index.js",
-  "module": "es/index.js",
-  "jsnext:main": "es/index.js",
-  "types": "types/index.d.ts",
-  "files": [
-    "LICENSE",
-    "README.md",
-    "es/**",
-    "lib/**",
-    "types/**"
-  ],
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "dist/**"
+  ],
+  "browserslist": [
+    "IE >= 11",
+    "Firefox >= 60",
+    "Safari >= 11.1",
+    "Chrome >= 66",
+    "ChromeAndroid >= 66",
+    "iOS >= 11.3",
+    "Edge >= 15"
+  ],
   "scripts": {
-    "clean": "rimraf lib es types",
-    "build": "tsc -b ./tsconfig.types.json",
+    "setup": "pnpm build",
+    "clean": "rimraf dist",
+    "build": "tsc -b",
     "dev": "pnpm build -w",
-    "release": "pnpm clean && pnpm build && npm publish"
+    "test": "ava",
+    "check": "pnpm build && pnpm test"
   },
   "keywords": [
     "state management",
@@ -42,7 +51,7 @@
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
-    "prettier": "^2.4.1",
+    "ava": "^6.1.3",
     "react": "canary",
     "rimraf": "^3.0.2",
     "typescript": "^5.4.5"
