@@ -1,12 +1,17 @@
-import { Middleware, MiddlewareContext } from "alveron"
+import { Middleware, MiddlewareContext } from 'alveron'
 
 type Config<T> = {
-  key: string,
-  getStorage: () => Storage,
-  actions: Array<string>
-  onHydrated: (data?: T) => void
+  key: string
+  getStorage: () => Storage
+  actions?: Array<string>
+  onHydrated?: (data?: T) => void
 }
-export default function persistence<T>({ key, getStorage, actions, onHydrated }: Config<T>): Middleware {
+export default function persistence<T>({
+  key,
+  getStorage,
+  actions,
+  onHydrated,
+}: Config<T>): Middleware {
   function middleware(nextState: any, { action }: MiddlewareContext) {
     if (actions && Array.isArray(actions) && !actions.includes(action)) {
       return nextState
