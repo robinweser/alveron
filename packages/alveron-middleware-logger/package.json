@@ -33,8 +33,7 @@
     "clean": "rimraf dist",
     "build": "tsc -b",
     "dev": "pnpm build -w",
-    "test": "ava",
-    "check": "pnpm build && pnpm test"
+    "test": "ava"
   },
   "keywords": [
     "alveron",
