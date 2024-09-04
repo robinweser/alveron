@@ -1,17 +1,20 @@
 {
   "name": "alveron",
   "private": true,
+  "packageManager": "pnpm@7.0.0",
   "scripts": {
-    "build": "pnpm turbo run build"
+    "postinstall": "pnpm turbo run setup",
+    "build": "pnpm turbo run build",
+    "release": "pnpm prepare-release && lerna publish --force-publish",
+    "pre-release": "pnpm prepare-release && lerna publish --force-publish --dist-tag next --preid rc",
+    "prepare-release": " pnpm run test && pnpm build",
+    "test": "pnpm turbo run test",
+    "coverage": "pnpm turbo run coverage"
   },
-  "workspaces": [
-    "packages/*",
-    "website"
-  ],
-  "packageManager": "pnpm@7.11.0",
   "devDependencies": {
-    "prettier": "^2.7.1",
-    "rimraf": "^3.0.2",
-    "turbo": "^1.5.6"
+    "lerna": "^8.1.3",
+    "prettier": "^3.3.1",
+    "rimraf": "^5.0.7",
+    "turbo": "^2.0.1"
   }
 }

@@ -95,3 +95,39 @@
 2024-09-04T13:55:33.831628Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages/alveron-middleware-persistence/src/index.ts")}
 2024-09-04T13:55:33.831638Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("alveron-middleware-persistence"), path: AnchoredSystemPathBuf("packages/alveron-middleware-persistence") }}))
 2024-09-04T13:55:33.831652Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2024-09-04T14:00:47.831415Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("package.json")}
+2024-09-04T14:00:47.831435Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(All(DefaultGlobalFileChanged))
+2024-09-04T14:00:48.531868Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("package.json")}
+2024-09-04T14:00:48.531878Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(All(DefaultGlobalFileChanged))
+2024-09-04T14:00:49.630909Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("package.json")}
+2024-09-04T14:00:49.630926Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(All(DefaultGlobalFileChanged))
+2024-09-04T14:00:50.631450Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("package.json")}
+2024-09-04T14:00:50.631471Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(All(DefaultGlobalFileChanged))
+2024-09-04T14:00:51.731971Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("package.json")}
+2024-09-04T14:00:51.731991Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(All(DefaultGlobalFileChanged))
+2024-09-04T14:02:03.331454Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages/alveron/package.json")}
+2024-09-04T14:02:03.331467Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("alveron"), path: AnchoredSystemPathBuf("packages/alveron") }}))
+2024-09-04T14:02:46.430966Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("package.json")}
+2024-09-04T14:02:46.430984Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(All(DefaultGlobalFileChanged))
+2024-09-04T14:02:47.132106Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("package.json")}
+2024-09-04T14:02:47.132131Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(All(DefaultGlobalFileChanged))
+2024-09-04T14:02:51.130663Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_35782_7e282bf4c54446d7a28aaa229c341e0d")}
+2024-09-04T14:02:51.130673Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2024-09-04T14:02:51.432082Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("")}
+2024-09-04T14:02:51.432092Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({}))
+2024-09-04T14:02:52.032107Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("package.json")}
+2024-09-04T14:02:52.032117Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(All(DefaultGlobalFileChanged))
+2024-09-04T14:02:53.031810Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo/cache/f0ff7bd8cfbae278-meta.json"), AnchoredSystemPathBuf(".turbo/cache/f0ff7bd8cfbae278.tar.zst")}
+2024-09-04T14:02:53.031819Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2024-09-04T14:02:53.131560Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo/cache/8bc75b986717facd-meta.json"), AnchoredSystemPathBuf(".turbo/cache/8bc75b986717facd.tar.zst")}
+2024-09-04T14:02:53.131570Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2024-09-04T14:02:53.531023Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo/cache/7b33405b703b0acf.tar.zst"), AnchoredSystemPathBuf(".turbo/cache/7b33405b703b0acf-meta.json")}
+2024-09-04T14:02:53.531032Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2024-09-04T14:02:53.731495Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo/cache/5777c9e1d58b63fe-meta.json"), AnchoredSystemPathBuf(".turbo/cache/5777c9e1d58b63fe.tar.zst")}
+2024-09-04T14:02:53.731505Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2024-09-04T14:02:54.131236Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo/cache/c758349b6b547aeb.tar.zst"), AnchoredSystemPathBuf(".turbo/cache/c758349b6b547aeb-meta.json")}
+2024-09-04T14:02:54.131245Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2024-09-04T14:02:55.331682Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo/cache/274325ca5e7490a2.tar.zst"), AnchoredSystemPathBuf(".turbo/cache/274325ca5e7490a2-meta.json")}
+2024-09-04T14:02:55.331703Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2024-09-04T14:03:05.832139Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("lerna.json")}
+2024-09-04T14:03:05.832149Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
