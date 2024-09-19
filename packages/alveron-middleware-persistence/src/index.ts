@@ -1,16 +1,25 @@
 import { Middleware, MiddlewareContext } from 'alveron'
 
+type SyntheticStorage<T = any> = {
+  getItem: (key: string) => Promise<T>
+  setItem: (key: string, value: T) => void
+}
 type Config<T> = {
   key: string
-  getStorage: () => Storage
+  getStorage: () => Storage | SyntheticStorage
   actions?: Array<string>
   onHydrated?: (data?: T) => void
+  encode?: (data?: T) => any
+  decode?: (data: any) => T
 }
+
 export default function persistence<T>({
   key,
   getStorage,
   actions,
   onHydrated,
+  encode = JSON.stringify,
+  decode = JSON.parse,
 }: Config<T>): Middleware {
   function middleware(nextState: any, { action }: MiddlewareContext) {
     if (actions && Array.isArray(actions) && !actions.includes(action)) {
@@ -21,7 +30,7 @@ export default function persistence<T>({
 
     if (storage) {
       try {
-        storage.setItem(key, JSON.stringify(nextState))
+        storage.setItem(key, encode(nextState))
       } catch (e) {}
     }
 
@@ -31,20 +40,34 @@ export default function persistence<T>({
   function effect(setState: any) {
     const storage = getStorage()
 
-    let parsedData
     if (storage) {
-      const data = storage.getItem(key)
+      const isAsync = storage.getItem.constructor.name === 'AsyncFunction'
 
-      if (data) {
-        try {
-          parsedData = JSON.parse(data)
-          setState(parsedData)
-        } catch (e) {}
+      async function getData() {
+        if (isAsync) {
+          return await storage.getItem(key)
+        } else {
+          return storage.getItem(key)
+        }
       }
-    }
 
-    if (onHydrated) {
-      onHydrated(parsedData)
+      async function hydrate() {
+        const data = await getData()
+
+        let parsedData
+        if (data) {
+          try {
+            parsedData = decode(data)
+            setState(parsedData)
+          } catch (e) {}
+        }
+
+        if (onHydrated) {
+          onHydrated(parsedData)
+        }
+      }
+
+      hydrate()
     }
   }
 
